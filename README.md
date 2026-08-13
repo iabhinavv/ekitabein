@@ -138,10 +138,12 @@ The original 8/14/20% discount ladder was too deep. At 20% off, the 20%-margin S
 | Gift set layout rebuilt | Artwork on top, text beneath, price and CTA baseline-aligned across all four cards via `margin-top:auto`. Was a side-by-side grid with ragged text. |
 | Pricing rebuilt | See §4. |
 | Volume slabs reduced | 8/14/20% → 4/8/12%. |
+| Mobile layout fixed | Added the missing `<meta name="viewport">` (without it a phone rendered the page at ~980px and shrank everything). Rebuilt the `≤720px` styles: one product card per row, larger type, full-width CTAs, 2×2 KPI grid, and horizontal scroll kept on wide tables. Corporate site only. |
+| CSR / book-donation programme added | New **"CSR & book donation"** occasion tile (shown on the home and occasions grids and its own detail page) plus a dedicated CSR section on the home page. Companies donate readers to government schools and public libraries across India; every unit ships pre-loaded with the full **NCERT set, classes 1–12** and a shelf of **open-publication / public-domain books**, working offline with no account. Framed against Schedule VII (education) CSR spend and added to the inquiry occasion list. Donation picks lead with the **Safha 7** (a 7-inch page holds an NCERT textbook column without reflowing). Corporate site only. |
 
 Untouched: the retail store (`ekitabein-demo.html`) and the spec (`ekitabein-spec.html`). Those still carry the older 8-SKU range and the demo framing.
 
-**Still to do:** apply the same SKU and pricing changes to the retail store, and add a real GSTIN once registration completes.
+**Still to do:** apply the same SKU and pricing changes to the retail store; add a real GSTIN once registration completes; confirm NCERT / open-publication redistribution terms and line up school and library partners before the CSR programme goes live.
 
 ---
 

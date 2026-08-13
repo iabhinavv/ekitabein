@@ -568,7 +568,8 @@ var OCCASIONS = [
   {id:'milestones', g:'&#10036;', t:'Work anniversaries', s:'Occasions with a number attached. Engraved and individually named, delivered to the desk or the home.', picks:['milestone','panna-max','panna']},
   {id:'clients', g:'&#10043;', t:'Client &amp; partner gifting', s:'For lists where everyone already owns the obvious thing. Unusual hardware, quietly branded.', picks:['executive','girah-pro','safha']},
   {id:'events', g:'&#10070;', t:'Conferences &amp; offsites', s:'High headcount, fixed date, flat-packed and counted by table or track.', picks:['conference','nukta','safha']},
-  {id:'rewards', g:'&#9733;', t:'Sales incentives &amp; rewards', s:'A tiered reward ladder across three price points, all from one purchase order.', picks:['panna-max','girah-pro','varak']}
+  {id:'rewards', g:'&#9733;', t:'Sales incentives &amp; rewards', s:'A tiered reward ladder across three price points, all from one purchase order.', picks:['panna-max','girah-pro','varak']},
+  {id:'csr', g:'&#9829;', t:'CSR &amp; book donation', s:'Donate readers to government schools and public libraries across India, each pre-loaded with the full NCERT set for classes 1&#8211;12 and a shelf of open-publication books. Educational CSR spend that reaches a classroom, not a drawer.', picks:['safha','panna','nukta']}
 ];
 
 /* ---- illustrative scenarios (not real clients) ---- */
@@ -889,6 +890,10 @@ function renderHome(el){
     }).join('')+'</div>' +
   '</section>' +
 
+  '<div class="orn">'+ORN+'</div>' +
+
+  csrSection() +
+
   ctaBlock();
 }
 
@@ -899,6 +904,44 @@ function ctaBlock(){
     '<p class="muted" style="max-width:52ch;margin:0 auto 22px">That is genuinely all we need to come back with a price, a lead time and a sample. Minimum order is one unit, so you can hold it before you decide.</p>' +
     '<a class="btn btn-p" href="#/inquire">Request a quote</a>' +
     '<p class="small muted" style="margin-top:16px">Or write to <a href="mailto:orders@ekitabein.com" style="color:var(--accent);text-decoration:underline">orders@ekitabein.com</a></p>' +
+  '</div></section>';
+}
+
+/* ---- CSR / book-donation feature, shared by the home page and the
+   CSR occasion detail page ---- */
+function csrSection(){
+  var perDevice = (byId('safha').storage*1000).toLocaleString('en-IN');
+  return '<section class="sec" id="csr"><div class="card" style="padding:0;overflow:hidden;border-color:var(--accent)">' +
+    '<div style="background:var(--accent-soft);padding:32px 28px;border-bottom:1px solid var(--rule)">' +
+      '<span class="label" style="color:var(--accent)">Corporate social responsibility</span>' +
+      '<h2 style="margin:10px 0 10px">Give a library, not a logo</h2>' +
+      '<p class="lede" style="max-width:64ch;color:var(--ink-2)">Donate ekitabein readers to government schools and public libraries across India. Every unit ships pre-loaded with the complete NCERT syllabus for classes 1 to 12 and a shelf of open-publication books &#8212; no internet, no account, no store. A child switches it on and starts reading.</p>' +
+    '</div>' +
+    '<div class="cols-main" style="padding:28px">' +
+      '<div>' +
+        '<h4 style="margin-bottom:12px">What is loaded on every donated reader</h4>' +
+        '<div class="bullets">' +
+          '<div><span class="c">'+CHECK+'</span><span><b>NCERT textbooks, classes 1&#8211;12</b> '+DOT+' every subject, in Hindi and English, from NCERT&#8217;s freely distributable PDFs</span></div>' +
+          '<div><span class="c">'+CHECK+'</span><span><b>Open-publication library</b> '+DOT+' openly licensed and public-domain titles &#8212; Pratham / StoryWeaver readers, National Digital Library and Project Gutenberg classics</span></div>' +
+          '<div><span class="c">'+CHECK+'</span><span><b>Works fully offline</b> '+DOT+' no Wi-Fi and no login; the whole library sits on the device and loads over USB-C</span></div>' +
+          '<div><span class="c">'+CHECK+'</span><span><b>Made for a classroom</b> '+DOT+' e-ink is easy on the eyes, weeks of battery, and a page that stays readable in sunlight</span></div>' +
+        '</div>' +
+        '<div class="row" style="gap:12px;margin-top:22px;flex-wrap:wrap">' +
+          '<a class="btn btn-p" href="#/inquire?p=safha">Start a donation programme</a>' +
+          '<a class="btn btn-s" href="#/occasions?o=csr">See the readers we donate</a>' +
+        '</div>' +
+      '</div>' +
+      '<div class="stack" style="gap:14px">' +
+        '<div class="kpis" style="grid-template-columns:1fr 1fr">' +
+          '<div class="kpi"><div class="k">On one device</div><div class="v tnum">~'+perDevice+'</div><div class="s">books, offline</div></div>' +
+          '<div class="kpi"><div class="k">Classes covered</div><div class="v tnum">1&#8211;12</div><div class="s">full NCERT set</div></div>' +
+          '<div class="kpi"><div class="k">Reach</div><div class="v">Pan-India</div><div class="s">schools &amp; libraries</div></div>' +
+          '<div class="kpi"><div class="k">Minimum</div><div class="v tnum">1</div><div class="s">donate one, or a thousand</div></div>' +
+        '</div>' +
+        '<div class="card" style="background:var(--raise)"><h4 style="margin-bottom:8px">How the CSR spend works</h4>' +
+        '<p class="small muted">Structured to sit inside your Schedule VII education budget. We invoice the donation to your company with GST, ship directly to the schools you nominate or ones we partner with, and share a photo receipt with device serials once they are handed over.</p></div>' +
+      '</div>' +
+    '</div>' +
   '</div></section>';
 }
 
@@ -1245,7 +1288,7 @@ function renderInquire(el, r){
         '<h4 style="margin-bottom:14px">The gift</h4>' +
         '<div class="grid2">' +
           '<div class="field"><label>Occasion</label><select id="f_occasion">' +
-            ['Diwali / festive','Onboarding / welcome kits','Work anniversaries','Client &amp; partner gifting','Conference / offsite','Sales incentives','Farewell / retirement','Something else'].map(function(o){return '<option>'+o+'</option>';}).join('') +
+            ['Diwali / festive','Onboarding / welcome kits','Work anniversaries','Client &amp; partner gifting','Conference / offsite','Sales incentives','Farewell / retirement','CSR / school &amp; library donation','Something else'].map(function(o){return '<option>'+o+'</option>';}).join('') +
           '</select></div>' +
           '<div class="field"><label>Quantity <span class="req">*</span></label><input id="f_qty" inputmode="numeric" value="'+(t.units||1)+'"><span class="hint">Minimum order is one unit.</span></div>' +
           '<div class="field"><label>Budget per unit <span class="muted">(optional)</span></label><select id="f_budget">' +
@@ -1540,7 +1583,7 @@ function renderOccasions(el, r){
           return '<a class="occ" href="#/occasions?o='+o.id+'"><span class="g">'+o.g+'</span><h4>'+o.t+'</h4>' +
             '<p>'+o.s+'</p><p class="small" style="margin-top:10px;color:var(--accent)">Usually '+o.picks.map(function(id){var x=byId(id);return x?esc(fullName(x)):'';}).filter(Boolean).slice(0,2).join(', ')+' '+ARROW+'</p></a>';
         }).join('')+'</div>') +
-  '</section>' + (occ?ctaBlock():'');
+  '</section>' + (occ&&occ.id==='csr'?csrSection():'') + (occ?ctaBlock():'');
 }
 
 /* ============================================================
