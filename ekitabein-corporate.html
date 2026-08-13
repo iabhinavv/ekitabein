@@ -1,0 +1,1767 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ekitabein for business &#8212; corporate gifting</title>
+
+<style>
+/* ============================================================
+   Same palette as the retail store (e-ink paper, ink indigo).
+   Typography is the change: set entirely in a book serif.
+   ============================================================ */
+:root{
+  --paper:#F1F2EE; --surface:#FFFFFF; --surface-2:#E8EAE4; --raise:#FBFBF9;
+  --ink:#14171A; --ink-2:#454A47; --ink-3:#767C77;
+  --rule:#DCDFD8; --rule-2:#C3C7BF;
+  --accent:#2F4A85; --accent-h:#24396A; --accent-soft:#E2E8F3; --on-accent:#FFFFFF;
+  --sale:#A2402C; --sale-soft:#F5E3DE;
+  --ok:#1F6B4A; --ok-soft:#DCEBE3;
+  --warn:#7A6015; --warn-soft:#F0EAD2;
+  --dev-body:#2B3035; --dev-edge:#171B1F; --dev-screen:#EFEEE8; --dev-text:#A9A79F; --dev-key:#3E444A; --dev-etch:#828B93;
+  --shadow-1:0 1px 2px rgba(20,23,26,.06);
+  --shadow-2:0 8px 26px rgba(20,23,26,.10),0 2px 6px rgba(20,23,26,.05);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","Hoefler Text",Georgia,"Times New Roman",serif;
+  --r:4px; --r-s:3px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#121517; --surface:#191D20; --surface-2:#22272A; --raise:#1F2427;
+  --ink:#E8EAE5; --ink-2:#AFB5B0; --ink-3:#838A85;
+  --rule:#2C3134; --rule-2:#3B4145;
+  --accent:#8CACE0; --accent-h:#A6C1EB; --accent-soft:#1C2838; --on-accent:#0E1215;
+  --sale:#E2917D; --sale-soft:#2E1E1A;
+  --ok:#6FBE9C; --ok-soft:#152720;
+  --warn:#D3B45F; --warn-soft:#2A2617;
+  --dev-body:#3A4046; --dev-edge:#22272B; --dev-screen:#EFEEE8; --dev-text:#A9A79F; --dev-key:#4C545B; --dev-etch:#98A2AA;
+  --shadow-1:0 1px 2px rgba(0,0,0,.4); --shadow-2:0 10px 30px rgba(0,0,0,.5);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#121517; --surface:#191D20; --surface-2:#22272A; --raise:#1F2427;
+  --ink:#E8EAE5; --ink-2:#AFB5B0; --ink-3:#838A85;
+  --rule:#2C3134; --rule-2:#3B4145;
+  --accent:#8CACE0; --accent-h:#A6C1EB; --accent-soft:#1C2838; --on-accent:#0E1215;
+  --sale:#E2917D; --sale-soft:#2E1E1A;
+  --ok:#6FBE9C; --ok-soft:#152720;
+  --warn:#D3B45F; --warn-soft:#2A2617;
+  --dev-body:#3A4046; --dev-edge:#22272B; --dev-screen:#EFEEE8; --dev-text:#A9A79F; --dev-key:#4C545B; --dev-etch:#98A2AA;
+  --shadow-1:0 1px 2px rgba(0,0,0,.4); --shadow-2:0 10px 30px rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+
+/* ---------- book typography ---------- */
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;line-height:1.18;text-wrap:balance;letter-spacing:-.005em}
+h1{font-size:clamp(2rem,4.2vw,3.05rem)}
+h2{font-size:clamp(1.5rem,2.7vw,2.05rem)}
+h3{font-size:1.25rem}
+h4{font-size:1.02rem;font-weight:600}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+b,strong{font-weight:600}
+em{font-style:italic}
+button,input,select,textarea{font-family:var(--serif);font-size:16px;color:var(--ink)}
+input,select,textarea{background:var(--surface);border:1px solid var(--rule-2);border-radius:var(--r-s);padding:10px 12px;width:100%;line-height:1.4}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent)}
+button{background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img,svg{max-width:100%}
+table,th,td{color:var(--ink);font:inherit}
+/* prose */
+.prose{max-width:66ch}
+.prose p+p{margin-top:1.05em}
+.lede{font-size:1.16rem;line-height:1.66;color:var(--ink-2)}
+.dropcap::first-letter{
+  float:left;font-size:3.5em;line-height:.82;padding:.05em .09em 0 0;
+  font-weight:600;color:var(--accent);
+}
+/* label / eyebrow: letterspaced small caps, not monospace */
+.label{
+  font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;
+}
+.orn{text-align:center;color:var(--rule-2);font-size:19px;letter-spacing:.5em;padding:6px 0;user-select:none}
+.rule{border:0;border-top:1px solid var(--rule);margin:0}
+.rule-d{border:0;border-top:1px solid var(--rule-2);border-bottom:1px solid var(--rule-2);height:3px;margin:0}
+.tnum{font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-3)}
+.small{font-size:14.5px;line-height:1.6}
+.xs{font-size:12.5px;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.narrow{max-width:760px;margin:0 auto}
+.stack{display:flex;flex-direction:column}
+.row{display:flex;align-items:center;flex-wrap:wrap}
+.sp{flex:1}
+.hide{display:none !important}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 22px;border-radius:var(--r-s);font-weight:600;font-size:15.5px;border:1px solid transparent;transition:background .13s,border-color .13s;white-space:nowrap}
+.btn-p{background:var(--accent);color:var(--on-accent)}
+.btn-p:hover{background:var(--accent-h)}
+.btn-s{background:var(--surface);border-color:var(--rule-2)}
+.btn-s:hover{border-color:var(--ink-3)}
+.btn-g{background:none;color:var(--accent);padding:6px 8px;text-decoration:underline;text-underline-offset:3px}
+.btn-lg{padding:15px 26px;font-size:16.5px;width:100%}
+.btn-sm{padding:8px 14px;font-size:14px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* ---------- tags ---------- */
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;padding:4px 8px;border-radius:2px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+.tag-acc{background:var(--accent-soft);color:var(--accent)}
+.tag-ok{background:var(--ok-soft);color:var(--ok)}
+.tag-warn{background:var(--warn-soft);color:var(--warn)}
+.chip{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border-radius:2px;padding:3px 8px;white-space:nowrap}
+
+/* ---------- header ---------- */
+.ann{background:var(--surface-2);border-bottom:1px solid var(--rule);font-size:13px;color:var(--ink-2);text-align:center;padding:8px 14px}
+.ann b{color:var(--ink)}
+header.site{position:sticky;top:0;z-index:40;background:var(--surface);border-bottom:1px solid var(--rule)}
+.hdr{display:flex;align-items:center;gap:22px;padding:15px 0}
+.logo{display:flex;align-items:center;gap:10px;font-size:23px;font-weight:600;letter-spacing:-.02em}
+.logo .mk{width:19px;height:25px;border-radius:2px 4px 4px 2px;background:var(--ink);position:relative;flex:none}
+.logo .mk::after{content:"";position:absolute;left:3px;top:5px;right:3px;height:1.5px;background:var(--paper);box-shadow:0 4px 0 var(--paper),0 8px 0 var(--paper)}
+.logo .biz{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);border-left:1px solid var(--rule-2);padding-left:10px;margin-left:2px}
+.mainnav{display:flex;gap:4px;align-items:center}
+.mainnav a{padding:8px 13px;font-size:15.5px;color:var(--ink-2);border-radius:var(--r-s)}
+.mainnav a:hover{color:var(--ink);background:var(--surface-2)}
+.mainnav a.on{color:var(--accent)}
+.hdr-acts{display:flex;align-items:center;gap:8px}
+.qbtn{position:relative;display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border:1px solid var(--rule-2);border-radius:var(--r-s);font-size:14.5px;font-weight:600}
+.qbtn:hover{border-color:var(--ink-3)}
+.qbtn .n{background:var(--accent);color:var(--on-accent);border-radius:9px;min-width:19px;height:19px;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;padding:0 5px}
+.menu-btn{display:none;font-size:22px;padding:4px 10px}
+
+/* ---------- sections ---------- */
+.sec{padding:52px 0}
+.sec-h{margin-bottom:26px}
+.sec-h .label{display:block;margin-bottom:9px}
+.sec-h p{color:var(--ink-3);margin-top:8px;max-width:60ch}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:24px}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(232px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:1.02fr .98fr;gap:0;align-items:stretch;border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;background:var(--surface);margin-top:26px}
+.hero .txt{padding:48px 44px;display:flex;flex-direction:column;gap:16px;justify-content:center}
+.hero .art{background:var(--surface-2);position:relative;display:flex;align-items:center;justify-content:center;padding:32px;min-height:400px}
+.hero .art::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--rule-2) 1px,transparent 1px);background-size:10px 10px;opacity:.55}
+.hero .art .inner{position:relative;display:flex;align-items:flex-end;gap:-20px}
+.moq{display:inline-flex;align-items:baseline;gap:8px;border:1px solid var(--accent);color:var(--accent);border-radius:var(--r-s);padding:7px 13px;font-size:14px;align-self:flex-start}
+.moq b{font-size:17px}
+
+/* ---------- product card ---------- */
+.pcard{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:11px;position:relative;transition:box-shadow .16s,border-color .16s}
+.pcard:hover{box-shadow:var(--shadow-2);border-color:var(--rule-2)}
+.pcard .art{background:var(--surface-2);border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;padding:14px 0;min-height:186px}
+.pcard .nm{font-size:19px;font-weight:600;line-height:1.25}
+.pcard .tl{font-size:14px;color:var(--ink-3);font-style:italic;margin-top:-5px}
+.pcard .chips{display:flex;flex-wrap:wrap;gap:6px}
+.rng{display:flex;flex-direction:column;gap:1px;margin-top:2px}
+.rng .v{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.rng .u{font-size:12.5px;color:var(--ink-3);letter-spacing:.04em}
+.ribbon{position:absolute;top:14px;left:14px;z-index:2}
+.shortbtn{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:var(--r-s);border:1px solid var(--rule);background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:17px;z-index:2;line-height:1}
+.shortbtn.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+
+/* ---------- slab table ---------- */
+.slab{width:100%;border-collapse:collapse;font-size:15px}
+.slab th,.slab td{padding:11px 14px;border-bottom:1px solid var(--rule);text-align:left}
+.slab th{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600;background:var(--surface-2)}
+.slab td.n{text-align:right;font-variant-numeric:tabular-nums}
+.slab tr:last-child td{border-bottom:0}
+.slab tr.best td{background:var(--accent-soft)}
+.tw{overflow-x:auto}
+/* gift-set card: artwork on top, text beneath, actions pinned to the bottom */
+.bgrid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items:stretch}
+.bcard{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;transition:box-shadow .16s,border-color .16s}
+.bcard:hover{box-shadow:var(--shadow-2);border-color:var(--rule-2)}
+.bcard-badge{position:absolute;top:14px;left:14px;z-index:2}
+.bcard-art{display:flex;align-items:center;justify-content:center;background:var(--surface-2);padding:22px 0 18px;min-height:210px}
+.bcard-body{display:flex;flex-direction:column;gap:9px;padding:20px;flex:1}
+.bcard-tag{font-style:italic;color:var(--ink-3);font-size:14.5px;margin-top:-4px}
+.bcard-list{margin:2px 0;padding-left:1.15rem;color:var(--ink-2);font-size:14px;line-height:1.62}
+.bcard-list li{margin-bottom:2px}
+.bcard-price{margin-top:auto;padding-top:10px}
+.bcard-cta{display:flex;gap:9px;flex-wrap:wrap;margin-top:4px}
+.cols2,.cols-main,.cols-bundle,.cols-rec{display:grid;gap:26px;align-items:start;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){
+  .cols2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .cols-main{grid-template-columns:minmax(0,1fr) minmax(0,340px)}
+  .cols-bundle{grid-template-columns:150px minmax(0,1fr)}
+  .cols-rec{grid-template-columns:250px minmax(0,1fr);align-items:center}
+}
+
+/* ---------- PDP ---------- */
+.pdp{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:44px;align-items:start;padding-top:26px}
+.gallery{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:26px;position:sticky;top:130px}
+.gal-main{background:var(--surface-2);border-radius:var(--r-s);min-height:400px;display:flex;align-items:center;justify-content:center;padding:24px}
+.thumbrow{display:flex;gap:9px;justify-content:center;margin-top:14px}
+.thumbrow button{width:56px;height:64px;border:1px solid var(--rule-2);border-radius:var(--r-s);background:var(--surface-2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.thumbrow button.on{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.crumbs{font-size:13.5px;color:var(--ink-3);padding:18px 0 0}
+.crumbs a:hover{color:var(--accent);text-decoration:underline}
+.buybox{display:flex;flex-direction:column;gap:18px}
+.bullets{display:flex;flex-direction:column;gap:9px;font-size:14.5px;color:var(--ink-2)}
+.bullets div{display:flex;gap:10px;align-items:flex-start}
+.bullets .c{color:var(--ok);font-weight:700;flex:none}
+.bullets .x{color:var(--sale);font-weight:700;flex:none}
+.spectable{width:100%;border-collapse:collapse;font-size:15px}
+.spectable td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+.spectable td:first-child{color:var(--ink-3);width:200px}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--rule);overflow-x:auto;margin-top:44px}
+.tabs button{padding:12px 18px;font-size:15.5px;color:var(--ink-3);border-bottom:2px solid transparent;white-space:nowrap}
+.tabs button.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tabpane{padding:26px 0}
+
+/* ---------- steps / process ---------- */
+.steps{counter-reset:s;display:grid;gap:0}
+.step{display:grid;grid-template-columns:52px minmax(0,1fr);gap:20px;padding:20px 0;border-top:1px solid var(--rule);align-items:start}
+.step:first-child{border-top:0}
+.step .n{counter-increment:s;font-size:15px;color:var(--accent);border:1px solid var(--rule-2);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center}
+.step .n::before{content:counter(s)}
+.step h4{margin-bottom:3px}
+.step p{color:var(--ink-2);font-size:15px}
+
+/* ---------- occasions ---------- */
+.occ{display:block;background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:22px;transition:border-color .15s,transform .15s}
+.occ:hover{border-color:var(--accent);transform:translateY(-2px)}
+.occ .g{font-size:24px;display:block;margin-bottom:8px}
+.occ h4{margin-bottom:4px}
+.occ p{font-size:14px;color:var(--ink-3)}
+
+/* ---------- quote drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(10,12,14,.45);z-index:70;opacity:0;pointer-events:none;transition:opacity .18s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--paper);z-index:71;transform:translateX(100%);transition:transform .22s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer-h{display:flex;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid var(--rule);background:var(--surface)}
+.drawer-b{flex:1;overflow-y:auto;padding:0 20px}
+.drawer-f{border-top:1px solid var(--rule);padding:18px 20px;background:var(--surface);display:flex;flex-direction:column;gap:11px}
+.line{display:grid;grid-template-columns:70px minmax(0,1fr) auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:start}
+.line:last-child{border-bottom:0}
+.line .art{background:var(--surface-2);border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;padding:6px;min-height:80px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--rule-2);border-radius:var(--r-s)}
+.qty button{width:30px;height:32px;font-size:16px;color:var(--ink-2)}
+.qty button:hover{background:var(--surface-2)}
+.qty input{width:56px;text-align:center;border:0;border-left:1px solid var(--rule-2);border-right:1px solid var(--rule-2);border-radius:0;padding:6px 2px;font-size:14.5px}
+
+/* ---------- forms ---------- */
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.field .hint{font-size:12.5px;color:var(--ink-3)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.check{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--rule-2);border-radius:var(--r-s);padding:12px 14px;cursor:pointer;background:var(--surface)}
+.check.on{border-color:var(--accent);background:var(--accent-soft)}
+.check input{width:auto;margin:3px 0 0;accent-color:var(--accent)}
+.check .t{font-size:14.5px;font-weight:600}
+.check .s{font-size:12.5px;color:var(--ink-3)}
+.req{color:var(--sale)}
+
+/* ---------- confirmation ---------- */
+.confirm{text-align:center;max-width:640px;margin:0 auto;padding:60px 0}
+.confirm .seal{width:78px;height:78px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 26px}
+.confirm h1{margin-bottom:14px}
+.recap{text-align:left;background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:22px;margin-top:30px}
+.recap dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 18px;margin:0;font-size:14.5px}
+.recap dt{color:var(--ink-3)}
+.recap dd{margin:0}
+
+/* ---------- compare ---------- */
+.cmp{overflow-x:auto;border:1px solid var(--rule);border-radius:var(--r);background:var(--surface)}
+.cmp table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+.cmp td,.cmp th{padding:13px 16px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+.cmp th{background:var(--surface-2)}
+.cmp td:first-child{color:var(--ink-3);white-space:nowrap}
+
+/* ---------- misc ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0;border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;background:var(--rule)}
+.kpi{background:var(--surface);padding:20px 22px}
+.kpi .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.kpi .v{font-size:27px;font-weight:600;margin-top:6px;letter-spacing:-.02em}
+.kpi .s{font-size:13px;color:var(--ink-3);margin-top:2px}
+.quoteblock{border-left:2px solid var(--rule-2);padding:4px 0 4px 22px;font-style:italic;color:var(--ink-2);font-size:16.5px}
+.dtable{width:100%;border-collapse:collapse;font-size:14px}
+.dtable th,.dtable td{padding:11px 14px;border-bottom:1px solid var(--rule);text-align:left}
+.dtable th{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2);font-weight:600}
+.toasts{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:90;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
+.toast{background:var(--ink);color:var(--paper);padding:12px 20px;border-radius:var(--r-s);font-size:14.5px;box-shadow:var(--shadow-2);animation:tin .25s ease}
+@keyframes tin{from{opacity:0;transform:translateY(10px)}}
+
+footer.site{border-top:1px solid var(--rule);background:var(--surface);margin-top:64px;padding:40px 0 28px}
+.fgrid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:30px}
+footer.site h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 12px;font-weight:600}
+footer.site a{font-size:14.5px;color:var(--ink-2);line-height:2}
+footer.site a:hover{color:var(--accent)}
+.legal{border-top:1px solid var(--rule);margin-top:28px;padding-top:20px;font-size:12.5px;color:var(--ink-3);display:flex;flex-direction:column;gap:7px;line-height:1.6}
+
+@media (max-width:1000px){
+  .pdp{grid-template-columns:minmax(0,1fr);gap:26px}
+  .gallery{position:static}
+  .hero{grid-template-columns:1fr}
+  .hero .txt{padding:32px 26px}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .mainnav{display:none}
+  .mainnav.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--rule);flex-direction:column;padding:10px 22px 16px;gap:0;z-index:45}
+  .mainnav.open a{padding:11px 0;border-bottom:1px solid var(--rule)}
+  .menu-btn{display:block}
+  header.site{position:relative}
+}
+/* ============================================================
+   MOBILE (<=720px) - one card per row, larger type, roomier
+   tap targets. Inspired by clean single-column D2C layouts.
+   ============================================================ */
+@media (max-width:720px){
+  body{font-size:17px;line-height:1.7}
+  /* every multi-column grid collapses to one column: a single card
+     fills the screen and you scroll down for the next */
+  .grid2,.fgrid,.checks,.g2,.g3,.g4,.bgrid{grid-template-columns:1fr}
+  .sec{padding:34px 0}
+  .sec-h{margin-bottom:20px}
+  .logo{font-size:21px}
+  .logo .biz{display:none}
+  .card{padding:20px}
+  .wrap{padding:0 18px}
+  .narrow{padding:0}
+  .hero .txt{padding:30px 22px;gap:18px}
+  .hero .art{min-height:320px;padding:26px}
+  .kpis{grid-template-columns:1fr 1fr}
+  /* headings stay large and legible - no shrinking */
+  h1{font-size:clamp(2.1rem,8vw,2.6rem);line-height:1.12}
+  h2{font-size:clamp(1.6rem,6vw,2rem)}
+  h3{font-size:1.3rem}
+  .lede{font-size:1.18rem;line-height:1.6}
+  .prose{max-width:none}
+  .small{font-size:15px}
+  .xs{font-size:13px}
+  /* buttons: bigger targets, primary CTAs go full width */
+  .btn{white-space:normal;font-size:16px;padding:14px 22px}
+  .btn-sm{font-size:15px;padding:11px 16px}
+  .hero .row{flex-direction:column;align-items:stretch}
+  .hero .row .btn{width:100%}
+  /* product cards: bigger artwork + text so one commands the view */
+  .pcard{padding:18px;gap:13px}
+  .pcard .art{min-height:240px}
+  .pcard .nm{font-size:22px}
+  .pcard .tl{font-size:15px}
+  .chip{font-size:13.5px;padding:4px 10px}
+  .rng .v{font-size:24px}
+  .rng .u{font-size:13px}
+  .pcard .btn-p{flex:1}
+  .bcard-art{min-height:250px}
+  .bcard-body{padding:22px}
+  .bcard-list{font-size:15px}
+  /* keep the quote button visible but compact */
+  .qbtn{font-size:14px;padding:9px 13px}
+  /* wide content scrolls sideways instead of squishing */
+  .tw,.cmp,.tabs{-webkit-overflow-scrolling:touch}
+}
+@media (max-width:420px){
+  .hdr{gap:10px;padding:12px 0}
+  .ann{font-size:12.5px;padding:7px 12px;line-height:1.5}
+  .wrap{padding:0 16px}
+  .qbtn .n{min-width:18px;height:18px}
+  .pcard .art{min-height:220px}
+  .hero .art{min-height:280px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+@media print{header.site,footer.site,.ann,.noprint{display:none !important}}
+</style>
+
+<div class="ann"><b>Minimum order: one unit.</b> Order a single sample before you commit to five hundred &#183; GST invoice with full input credit &#183; pan-India delivery</div>
+
+<header class="site">
+  <div class="wrap">
+    <div class="hdr">
+      <a class="logo" href="#/"><i class="mk"></i>ekitabein<span class="biz">for business</span></a>
+      <nav class="mainnav" id="mainnav">
+        <a href="#/collection">The range</a>
+        <a href="#/bundles">Gift sets</a>
+        <a href="#/branding">Branding</a>
+        <a href="#/occasions">Occasions</a>
+        <a href="#/how">How it works</a>
+      </nav>
+      <span class="sp"></span>
+      <div class="hdr-acts">
+        <button class="btn btn-g" id="themeBtn" title="Switch theme" aria-label="Switch theme">&#9681;</button>
+        <button class="qbtn" id="quoteBtn">Quote list <span class="n" id="qCount">0</span></button>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="view" class="wrap"></main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo" style="margin-bottom:12px"><i class="mk"></i>ekitabein<span class="biz">for business</span></div>
+        <p class="small muted" style="max-width:38ch">E-ink readers as corporate gifts. Engraved with your mark, loaded with a library, delivered to one office or four hundred homes.</p>
+        <p class="small" style="margin-top:14px"><b>Simran Kaur</b><br><span class="muted">Corporate accounts</span><br>
+        <a href="mailto:orders@ekitabein.com" style="color:var(--accent)">orders@ekitabein.com</a><br>
+        <a href="https://wa.me/233257319254" style="color:var(--accent)">WhatsApp +233 257319254</a></p>
+      </div>
+      <div><h4>Gifting</h4><div class="stack"><a href="#/collection">The range</a><a href="#/bundles">Curated gift sets</a><a href="#/branding">Branding &amp; engraving</a><a href="#/occasions">By occasion</a><a href="#/finder">Gift finder</a></div></div>
+      <div><h4>For buyers</h4><div class="stack"><a href="#/how">How it works</a><a href="#/how#pricing">Volume pricing</a><a href="#/how#terms">Payment terms &amp; GST</a><a href="#/how#delivery">Delivery &amp; distribution</a><a href="#/inquiries">Inquiry log</a></div></div>
+      <div><h4>Company</h4><div class="stack"><a href="#/legal">Terms</a><a href="#/legal#privacy">Privacy (DPDP)</a><a href="#/legal#warranty">Warranty</a><a href="#/legal#grievance">Grievance officer</a></div></div>
+    </div>
+    <div class="legal">
+      <div><b>ekitabein pvt. ltd.</b> &#183; 5257, Sector 38 West, Chandigarh 160036</div>
+      <div>Grievance and support: orders@ekitabein.com &#183; WhatsApp +233 257319254 &#183; complaints acknowledged within 48 hours, resolved within 30 days.</div>
+      <div>Country of origin: China. Imported and marketed by ekitabein pvt. ltd. Prices quoted per unit, exclusive of GST unless stated. E-waste: dispose responsibly.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Quote list"></aside>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   ekitabein for business - corporate gifting
+   Catalogue is the house brand only: every third-party-branded
+   unit (Boox, Bigme, HamGeek, Duokan) stays excluded.
+   ASCII source only - non-ASCII via escapes so the file renders
+   correctly even when opened straight off disk.
+   ============================================================ */
+var RS, INCH, TIMES, DOT, DASH, CHECK, CROSS, ARROW, ORN;;
+
+/* rebuilt from code points so the source stays pure ASCII and renders
+   correctly even if the file is opened without a charset declaration */
+var C = String.fromCharCode;
+RS    = C(8377);  /* rupee      */
+INCH  = C(8243);  /* double prime */
+TIMES = C(215);
+DOT   = C(183);
+DASH  = C(8211);
+CHECK = C(10003);
+CROSS = C(10007);
+ARROW = C(8594);
+ORN   = C(8258);  /* asterism   */
+
+function money(n){ return RS + Math.round(n).toLocaleString('en-IN'); }
+function esc(s){ return String(s).replace(/[&<>"']/g, function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+/* ---- volume slabs: MOQ is one unit ---- */
+var SLABS = [
+  {min:1,   max:24,   off:0,    label:'1 ' + DASH + ' 24'},
+  {min:25,  max:99,   off:0.04, label:'25 ' + DASH + ' 99'},
+  {min:100, max:499,  off:0.08, label:'100 ' + DASH + ' 499'},
+  {min:500, max:Infinity, off:0.12, label:'500 and above'}
+];
+function slabFor(q){
+  for(var i=0;i<SLABS.length;i++) if(q>=SLABS[i].min && q<=SLABS[i].max) return SLABS[i];
+  return SLABS[0];
+}
+function tidy(n){ return Math.round(n/100)*100 - 1; }
+function unitPrice(p, q){
+  var s = slabFor(q||1);
+  return s.off===0 ? p.list : tidy(p.list*(1-s.off));
+}
+function priceRange(p){ return { lo: unitPrice(p, 500), hi: p.list }; }
+function rangeText(p){ var r=priceRange(p); return money(r.lo) + ' ' + DASH + ' ' + money(r.hi); }
+
+/* ---- the range ---- */
+var PRODUCTS = [
+  { id:'nukta', name:'Nukta 3.5', tagline:'The conference giveaway', kind:'reader',
+    screen:3.5, res:'480 ' + TIMES + ' 360', ppi:172, input:'touch', light:'none', warm:false,
+    wifi:false, storage:1, battery:'1000 mAh ' + DOT + ' 2 weeks', weight:78, dims:'104 ' + TIMES + ' 78 ' + TIMES + ' 9 mm',
+    list:6999, badge:'Volume favourite',
+    blurb:'The smallest and least expensive reader we make, and the one that goes into event bags. No Wi-Fi and no accounts, which means nobody has to set anything up. Loads about a thousand titles over USB-C.',
+    fits:'Conferences, offsites, large headcounts, first-time gifting budgets',
+    sourceSku:'Xuezhiyou 3.5' + INCH + ' OEM' },
+
+  { id:'varak', name:'Varak 5.7', tagline:'One-handed, front-lit', kind:'reader',
+    screen:5.7, res:'1280 ' + TIMES + ' 960', ppi:280, input:'touch', light:'front', warm:false,
+    wifi:true, storage:16, battery:'1800 mAh ' + DOT + ' 3 weeks', weight:152, dims:'152 ' + TIMES + ' 108 ' + TIMES + ' 8 mm',
+    list:11499,
+    blurb:'Half an inch smaller than the standard six, which is the difference between two hands and one. Front-lit, light, and the most comfortable reader in the range to hold on a commute.',
+    fits:'Employee rewards, women-in-tech programmes, travel-heavy teams',
+    sourceSku:'BK577A 5.7' + INCH },
+
+  { id:'panna', name:'Panna 6', tagline:'The one most teams choose', kind:'reader',
+    screen:6, res:'1448 ' + TIMES + ' 1072', ppi:300, input:'touch', light:'front', warm:false,
+    wifi:true, storage:16, battery:'2000 mAh ' + DOT + ' 4 weeks', weight:172, dims:'160 ' + TIMES + ' 112 ' + TIMES + ' 8 mm',
+    list:11999, badge:'Most gifted',
+    blurb:'Our default recommendation for corporate programmes. A 300 ppi six-inch panel that reads like a paperback, a front-light that goes low enough for a dark room, and four weeks between charges. It looks and feels like a considered gift rather than a branded object.',
+    fits:'Diwali, work anniversaries, client gifting, senior teams',
+    sourceSku:'Black Eink 6' + INCH + ' OEM' },
+
+  { id:'safha', name:'Safha 7', tagline:'The largest page', kind:'reader',
+    screen:7, res:'1680 ' + TIMES + ' 1264', ppi:300, input:'touch', light:'front', warm:false,
+    wifi:true, storage:16, battery:'2400 mAh ' + DOT + ' 4 weeks', weight:210, dims:'178 ' + TIMES + ' 130 ' + TIMES + ' 8 mm',
+    list:10999, badge:'Best value per inch',
+    blurb:'The biggest screen in the range at the same list price as the Panna 6. Choose it when the recipients read reports, papers and case studies rather than novels, because a seven-inch page holds an A4 column without reflowing it.',
+    fits:'Consulting and legal teams, research groups, academic gifting',
+    sourceSku:'E-Reader Multimedia 7' + INCH },
+
+  { id:'panna-max', name:'Panna Max 6', tagline:'The premium tier', kind:'reader',
+    screen:6, res:'1448 ' + TIMES + ' 1072', ppi:300, input:'touch', light:'warm', warm:true,
+    wifi:true, storage:32, battery:'2400 mAh ' + DOT + ' 5 weeks', weight:176, dims:'160 ' + TIMES + ' 112 ' + TIMES + ' 8 mm',
+    list:14999,
+    blurb:'The Panna 6 with an adjustable warm-to-cool front-light, double the storage and a larger battery. This is the tier for the gift that has a name attached to it: long-service awards, board members, retirements.',
+    fits:'Long-service awards, leadership gifting, retirement, top performers',
+    sourceSku:'EReader HD 6' + INCH },
+
+  { id:'girah-pro', name:'Girah 4.3', tagline:'The pocket flagship', kind:'reader',
+    screen:4.3, res:'800 ' + TIMES + ' 600', ppi:233, input:'buttons', light:'none', warm:false,
+    wifi:true, storage:8, battery:'1500 mAh ' + DOT + ' 6 weeks', weight:104, dims:'122 ' + TIMES + ' 88 ' + TIMES + ' 10 mm',
+    list:9999, badge:'New',
+    blurb:'A sharper, larger sibling to the Girah 3.7 built on the same button-driven idea. It is the shape people ask for most and the hardest one to buy in India, which makes it land as a gift in a way a mainstream reader does not.',
+    fits:'Client gifting, sales incentives, senior recognition',
+    sourceSku:'Yuesheng Tong X4 4.3' + INCH + ' (Guangzhou Xingyuangang)' }
+];
+
+/* ---- curated gift sets ---- */
+var BUNDLES = [
+  { id:'welcome', name:'The Welcome Kit', kind:'bundle', base:'panna', list:13499,
+    tagline:'For the first day', badge:'Onboarding',
+    contents:['ekitabein Panna 6 reader','Jild folio case in coated canvas','Engraved welcome card with the joiner name','Rigid gift box in your brand colour','100 pre-loaded classics'],
+    blurb:'Built for day-one desks. The card carries the joining date and the reader arrives already loaded, so there is nothing to set up in an induction session that is already too long.',
+    fits:'New joiner kits, campus hiring, induction programmes' },
+  { id:'milestone', name:'The Milestone Box', kind:'bundle', base:'panna', list:14999,
+    tagline:'For the years that count', badge:'Most gifted',
+    contents:['ekitabein Panna 6 reader, 16 GB','Jild folio case','Padded sleeve','Solid brass bookmark, engraved','Linen-wrapped presentation box','Hand-signed note card'],
+    blurb:'The set we send when the occasion has a number on it. The brass bookmark takes an engraved year or name, and the box is built to be kept rather than recycled on the way out of the building.',
+    fits:'Work anniversaries, long service, farewells' },
+  { id:'conference', name:'The Conference Pack', kind:'bundle', base:'nukta', list:7999,
+    tagline:'For four hundred bags', badge:'High volume',
+    contents:['ekitabein Nukta 3.5 reader','Felt slip sleeve','Branded card with a QR to your reading list','Flat-pack gift sleeve, bulk-packed'],
+    blurb:'Costed and packed for scale. Ships flat in counted cartons by table or track, so the event team is not opening four hundred boxes at seven in the morning.',
+    fits:'Conferences, summits, large offsites, trade events' },
+  { id:'executive', name:'The Executive Set', kind:'bundle', base:'girah-pro', list:13999,
+    tagline:'For the difficult list', badge:'Premium',
+    contents:['ekitabein Girah 4.3 reader','Full-grain leather folio','Brass bookmark, engraved','Two-piece rigid box with magnetic closure','Personal note card on cotton stock'],
+    blurb:'For the client list where everyone has already received a speaker, a bottle and a hamper. The Girah is an object people ask about, which is most of what a client gift needs to do.',
+    fits:'Client and partner gifting, board members, key accounts' }
+];
+
+var ALL = PRODUCTS.concat(BUNDLES);
+function byId(id){ for(var i=0;i<ALL.length;i++) if(ALL[i].id===id) return ALL[i]; return null; }
+function isBundle(p){ return p.kind==='bundle'; }
+function fullName(p){ return isBundle(p) ? p.name : ('ekitabein ' + p.name); }
+function artFor(p){ return isBundle(p) ? byId(p.base) : p; }
+
+/* ---- branding and add-on services ---- */
+var BRANDING = [
+  {id:'engrave', t:'Laser engraving', s:'Your logo on the back of the case, in one position', price:149, unit:'per unit', min:1},
+  {id:'library', t:'Pre-loaded library', s:'100 public-domain classics, or your own reading list', price:0, unit:'included', min:1},
+  {id:'box', t:'Printed gift box', s:'Rigid box printed to your brand guidelines', price:249, unit:'per unit', min:25},
+  {id:'card', t:'Personalised card', s:'Individually named message cards on cotton stock', price:49, unit:'per unit', min:1},
+  {id:'homedrop', t:'Home delivery', s:'Individually addressed to each recipient, tracked', price:120, unit:'per address', min:1}
+];
+
+/* ---- occasions ---- */
+var OCCASIONS = [
+  {id:'diwali', g:'&#10023;', t:'Diwali &amp; festive', s:'The largest single gifting window of the year. Book production by August; engraving slots close in September.', picks:['panna','milestone','safha']},
+  {id:'onboarding', g:'&#9993;', t:'Onboarding &amp; welcome kits', s:'A gift that gets used on the commute rather than left in a drawer. Ships in small, repeatable batches.', picks:['welcome','panna','nukta']},
+  {id:'milestones', g:'&#10036;', t:'Work anniversaries', s:'Occasions with a number attached. Engraved and individually named, delivered to the desk or the home.', picks:['milestone','panna-max','panna']},
+  {id:'clients', g:'&#10043;', t:'Client &amp; partner gifting', s:'For lists where everyone already owns the obvious thing. Unusual hardware, quietly branded.', picks:['executive','girah-pro','safha']},
+  {id:'events', g:'&#10070;', t:'Conferences &amp; offsites', s:'High headcount, fixed date, flat-packed and counted by table or track.', picks:['conference','nukta','safha']},
+  {id:'rewards', g:'&#9733;', t:'Sales incentives &amp; rewards', s:'A tiered reward ladder across three price points, all from one purchase order.', picks:['panna-max','girah-pro','varak']}
+];
+
+/* ---- illustrative scenarios (not real clients) ---- */
+var SCENARIOS = [
+  {q:'240 people, Diwali, four weeks out', a:'Panna 6 with laser-engraved logo and a printed box, delivered to 240 home addresses across 31 cities.', v:'Per unit ' + money(11039) + ' ' + DOT + ' engraving and home drop added'},
+  {q:'12 long-service awards', a:'Milestone Box with the year engraved on the brass bookmark, individually named cards, sent to each office.', v:'Per unit ' + money(14999) + ' ' + DOT + ' single-unit orders welcome'},
+  {q:'400 delegate bags, fixed event date', a:'Conference Pack, flat-packed in counted cartons by track, delivered to the venue two days ahead.', v:'Per unit ' + money(6159) + ' at the 500 slab'},
+  {q:'One sample, then a decision', a:'A single unit shipped against a card payment so the committee can hold it before the purchase order goes out.', v:'Minimum order is one unit'}
+];
+
+var LEADTIMES = [
+  ['1 ' + DASH + ' 24 units', 'Dispatched in 2 working days', 'Add 5 days for engraving'],
+  ['25 ' + DASH + ' 99 units', '5 ' + DASH + ' 7 working days', 'Add 5 days for engraving'],
+  ['100 ' + DASH + ' 499 units', '10 ' + DASH + ' 14 working days', 'Branding included in the window'],
+  ['500 and above', '3 ' + DASH + ' 4 weeks', 'Production slot confirmed at PO']
+];
+
+/* ---- state ---- */
+var DEFAULT_STATE = { quote:[], compare:[], inquiries:[], seq:1, recent:[] };
+var state = load();
+function load(){
+  try{
+    var raw = localStorage.getItem('ekitabein.biz.v1');
+    if(!raw) return JSON.parse(JSON.stringify(DEFAULT_STATE));
+    var s = JSON.parse(raw);
+    for(var k in DEFAULT_STATE) if(!(k in s)) s[k]=JSON.parse(JSON.stringify(DEFAULT_STATE[k]));
+    return s;
+  }catch(e){ return JSON.parse(JSON.stringify(DEFAULT_STATE)); }
+}
+function save(){ try{ localStorage.setItem('ekitabein.biz.v1', JSON.stringify(state)); }catch(e){} }
+</script>
+<script>
+/* ============================================================
+   Artwork - drawn, never loaded. Screen proportions follow the
+   real panel size so a 3.5-inch and a 7-inch look different.
+   ============================================================ */
+function deviceSVG(p, h, view){
+  view = view || 0;
+  if(isBundle(p)) return bundleSVG(p, h, view);
+  var sh = 25 * p.screen, sw = sh * 0.75;
+  var bez = p.screen < 4.5 ? 7 : 9;
+  var chin = p.input==='buttons' ? sh*0.42 : bez*2.2;
+  var dw = sw + bez*2, dh = sh + bez + chin;
+  var vw = 200, vh = 250, x = (vw-dw)/2, y = (vh-dh)/2;
+  var s = h ? (h/vh) : 1;
+  var o = ['<svg viewBox="0 0 '+vw+' '+vh+'" width="'+Math.round(vw*s)+'" height="'+Math.round(vh*s)+'" role="img" aria-label="'+esc(fullName(p))+', '+p.screen+'-inch e-ink reader">'];
+
+  if(view===2){
+    o.push('<rect x="'+x+'" y="'+y+'" width="'+dw+'" height="'+dh+'" rx="7" fill="var(--dev-body)"/>');
+    o.push('<rect x="'+(x+1.5)+'" y="'+(y+1.5)+'" width="'+(dw-3)+'" height="'+(dh-3)+'" rx="6" fill="none" stroke="var(--dev-edge)" stroke-width="1"/>');
+    /* engraving preview - this is the back panel customers brand */
+    o.push('<rect x="'+(x+dw/2-26)+'" y="'+(y+dh/2-16)+'" width="52" height="32" rx="2" fill="none" stroke="var(--dev-etch)" stroke-width="1" stroke-dasharray="3 3"/>');
+    o.push('<text x="'+(x+dw/2)+'" y="'+(y+dh/2+4)+'" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="var(--dev-etch)">YOUR MARK</text>');
+    o.push('<text x="'+(x+dw/2)+'" y="'+(y+dh-13)+'" text-anchor="middle" font-family="Georgia,serif" font-size="5.5" fill="var(--dev-etch)">ekitabein '+DOT+' MADE FOR INDIA</text>');
+    o.push('</svg>'); return o.join('');
+  }
+
+  o.push('<rect x="'+x+'" y="'+y+'" width="'+dw+'" height="'+dh+'" rx="7" fill="var(--dev-body)"/>');
+  o.push('<rect x="'+(x+1)+'" y="'+(y+1)+'" width="'+(dw-2)+'" height="'+(dh-2)+'" rx="6.5" fill="none" stroke="var(--dev-edge)" stroke-width=".8" opacity=".7"/>');
+  var sx = x+bez, sy = y+bez;
+  o.push('<rect x="'+sx+'" y="'+sy+'" width="'+sw+'" height="'+sh+'" rx="1.5" fill="var(--dev-screen)"/>');
+
+  var pad = sw*0.11, lw = sw - pad*2, ty = sy + pad*1.25;
+  {
+    var lh = Math.max(1.6, sh*0.028), gap = lh*2.1;
+    o.push('<rect x="'+(sx+pad)+'" y="'+ty+'" width="'+(lw*0.62)+'" height="'+(lh*2.1)+'" rx="1" fill="var(--dev-text)" opacity=".95"/>');
+    ty += lh*2.1 + gap*1.35;
+    var widths=[1,.94,.98,.88,1,.96,.72,1,.92,.99,.86,1,.95,.78,1,.93,.97,.9,1,.68];
+    for(var i=0;i<widths.length;i++){
+      if(ty + lh > sy + sh - pad*1.6) break;
+      o.push('<rect x="'+(sx+pad)+'" y="'+ty.toFixed(1)+'" width="'+(lw*widths[i]).toFixed(1)+'" height="'+lh.toFixed(1)+'" rx=".6" fill="var(--dev-text)" opacity=".75"/>');
+      ty += gap;
+    }
+  }
+  if(p.light!=='none'){
+    var gid='g'+p.id.replace(/[^a-z0-9]/g,'')+view;
+    o.push('<defs><linearGradient id="'+gid+'" x1="0" y1="0" x2="0" y2="1">'+
+           '<stop offset="0" stop-color="'+(p.warm?'#F2D9A8':'#FFFFFF')+'" stop-opacity=".55"/>'+
+           '<stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient></defs>');
+    o.push('<rect x="'+sx+'" y="'+sy+'" width="'+sw+'" height="'+(sh*0.4)+'" fill="url(#'+gid+')"/>');
+  }
+  var cy = sy + sh;
+  if(p.input==='buttons'){
+    var mid = x+dw/2, bh = chin*0.42, by = cy + chin*0.20;
+    o.push('<rect x="'+(x+bez)+'" y="'+by+'" width="'+(sw*0.3)+'" height="'+bh+'" rx="'+(bh/2)+'" fill="var(--dev-key)"/>');
+    o.push('<rect x="'+(x+dw-bez-sw*0.3)+'" y="'+by+'" width="'+(sw*0.3)+'" height="'+bh+'" rx="'+(bh/2)+'" fill="var(--dev-key)"/>');
+    o.push('<circle cx="'+mid+'" cy="'+(by+bh/2)+'" r="'+(bh*0.62)+'" fill="none" stroke="var(--dev-key)" stroke-width="1.6"/>');
+    o.push('<circle cx="'+mid+'" cy="'+(by+bh/2)+'" r="'+(bh*0.2)+'" fill="var(--dev-key)"/>');
+  } else {
+    o.push('<circle cx="'+(x+dw/2)+'" cy="'+(cy+chin/2)+'" r="2.2" fill="var(--dev-key)"/>');
+  }
+  o.push('</svg>');
+  return o.join('');
+}
+
+/* a gift set: presentation box with the reader standing in it */
+function bundleSVG(b, h, view){
+  var base = byId(b.base);
+  var s = h ? (h/250) : 1;
+  var o = ['<svg viewBox="0 0 200 250" width="'+Math.round(200*s)+'" height="'+Math.round(250*s)+'" role="img" aria-label="'+esc(b.name)+' gift set">'];
+  /* box lid behind */
+  o.push('<rect x="26" y="126" width="148" height="20" rx="2" fill="var(--dev-key)" opacity=".55"/>');
+  /* the reader, scaled down, sitting in the box */
+  var sh = 20 * base.screen, sw = sh*0.75, bez = base.screen<4.5?6:8;
+  var chin = base.input==='buttons' ? sh*0.40 : bez*2;
+  var dw = sw+bez*2, dh = sh+bez+chin, dx = 100-dw/2, dy = 150-dh;
+  o.push('<rect x="'+dx+'" y="'+dy+'" width="'+dw+'" height="'+dh+'" rx="5" fill="var(--dev-body)"/>');
+  o.push('<rect x="'+(dx+bez)+'" y="'+(dy+bez)+'" width="'+sw+'" height="'+sh+'" rx="1.5" fill="var(--dev-screen)"/>');
+  var pad=sw*0.12, lw=sw-pad*2, ty=dy+bez+pad*1.4, lh=Math.max(1.3,sh*0.03);
+  o.push('<rect x="'+(dx+bez+pad)+'" y="'+ty+'" width="'+(lw*0.6)+'" height="'+(lh*1.9)+'" rx="1" fill="var(--dev-text)" opacity=".9"/>');
+  ty += lh*4.4;
+  for(var i=0;i<9;i++){
+    if(ty+lh > dy+bez+sh-pad) break;
+    o.push('<rect x="'+(dx+bez+pad)+'" y="'+ty.toFixed(1)+'" width="'+(lw*[1,.92,.97,.85,1,.94,.7,1,.9][i]).toFixed(1)+'" height="'+lh.toFixed(1)+'" rx=".5" fill="var(--dev-text)" opacity=".7"/>');
+    ty += lh*2.4;
+  }
+  /* box base in front */
+  o.push('<path d="M24 148 h152 l-9 62 h-134 z" fill="var(--dev-body)"/>');
+  o.push('<path d="M24 148 h152 l-9 62 h-134 z" fill="none" stroke="var(--dev-edge)" stroke-width="1"/>');
+  /* ribbon + engraved plate on the box */
+  o.push('<rect x="94" y="148" width="12" height="62" fill="var(--dev-key)" opacity=".7"/>');
+  o.push('<rect x="56" y="168" width="88" height="22" rx="2" fill="none" stroke="var(--dev-etch)" stroke-width="1" stroke-dasharray="3 3"/>');
+  o.push('<text x="100" y="183" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="var(--dev-etch)">YOUR MARK</text>');
+  o.push('</svg>');
+  return o.join('');
+}
+
+/* ============================================================
+   helpers
+   ============================================================ */
+function toast(msg){
+  var t=document.createElement('div');
+  t.className='toast'; t.textContent=msg;
+  document.getElementById('toasts').appendChild(t);
+  setTimeout(function(){ t.style.opacity='0'; t.style.transition='opacity .3s'; },2100);
+  setTimeout(function(){ t.remove(); },2500);
+}
+function closeOverlays(){
+  document.getElementById('drawer').classList.remove('on');
+  document.getElementById('scrim').classList.remove('on');
+  document.body.style.overflow='';
+}
+document.getElementById('scrim').addEventListener('click', closeOverlays);
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeOverlays(); });
+
+/* ============================================================
+   Router
+   ============================================================ */
+function parseHash(){
+  var h=location.hash.replace(/^#/,'')||'/';
+  var qi=h.indexOf('?'), q={};
+  if(qi>-1){
+    h.slice(qi+1).split('&').forEach(function(kv){ if(!kv) return;
+      var p=kv.split('='); q[decodeURIComponent(p[0])]=decodeURIComponent(p[1]||''); });
+    h=h.slice(0,qi);
+  }
+  return {path:h, parts:h.split('/').filter(Boolean), q:q};
+}
+function go(u){ location.hash=u; }
+function setQ(k,v){
+  var r=parseHash(); if(v===null||v===''||v===undefined) delete r.q[k]; else r.q[k]=v;
+  var qs=Object.keys(r.q).map(function(k2){return encodeURIComponent(k2)+'='+encodeURIComponent(r.q[k2]);}).join('&');
+  go('#'+r.path+(qs?'?'+qs:''));
+}
+var ROUTES = {
+  '/':'renderHome', '/collection':'renderCollection', '/bundles':'renderBundles',
+  '/p':'renderPDP', '/branding':'renderBranding', '/occasions':'renderOccasions',
+  '/how':'renderHow', '/finder':'renderFinder', '/compare':'renderCompare',
+  '/inquire':'renderInquire', '/sent':'renderSent', '/inquiries':'renderInquiries',
+  '/legal':'renderLegal'
+};
+function render(){
+  var r=parseHash(), key='/'+(r.parts[0]||'');
+  var fn=window[ROUTES[key]]||window.renderNotFound;
+  if(typeof fn!=='function') return;
+  var v=document.getElementById('view');
+  v.innerHTML='';
+  fn(v,r);
+  syncChrome();
+  if(!r.q.keep) window.scrollTo(0,0);
+  var nav=document.getElementById('mainnav'); if(nav) nav.classList.remove('open');
+}
+window.addEventListener('hashchange', render);
+
+function syncChrome(){
+  var n=state.quote.reduce(function(a,l){return a+1;},0);
+  document.getElementById('qCount').textContent=n;
+  var key='/'+(parseHash().parts[0]||'');
+  [].forEach.call(document.querySelectorAll('.mainnav a'), function(a){
+    a.classList.toggle('on', a.getAttribute('href')==='#'+key);
+  });
+}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+function productCard(p){
+  var r=priceRange(p), inQ=quoteIndex(p.id)>-1;
+  var chips = isBundle(p)
+    ? [String(p.contents.length)+' pieces', 'built on the '+byId(p.base).name]
+    : [p.screen+INCH, p.light==='none'?'no front-light':(p.warm?'warm light':'front-light'),
+       p.input==='buttons'?'buttons':'touchscreen'];
+  return '<article class="pcard">' +
+    (p.badge?'<span class="ribbon tag tag-acc">'+esc(p.badge)+'</span>':'') +
+    '<button class="shortbtn'+(inQ?' on':'')+'" data-short="'+p.id+'" title="'+(inQ?'In your quote list':'Add to quote list')+'" aria-label="'+(inQ?'Remove from quote list':'Add to quote list')+'">'+(inQ?CHECK:'+')+'</button>' +
+    '<a class="art" href="#/p/'+p.id+'">'+deviceSVG(p,158)+'</a>' +
+    '<a href="#/p/'+p.id+'"><div class="nm">'+esc(fullName(p))+'</div></a>' +
+    '<div class="tl">'+esc(p.tagline)+'</div>' +
+    '<div class="chips">'+chips.map(function(c){return '<span class="chip">'+esc(c)+'</span>';}).join('')+'</div>' +
+    '<div class="rng"><span class="v tnum">'+rangeText(p)+'</span>' +
+    '<span class="u">per unit '+DOT+' by quantity '+DOT+' excl. GST</span></div>' +
+    '<div class="row" style="gap:8px;margin-top:auto;padding-top:10px">' +
+      '<a class="btn btn-p btn-sm" href="#/inquire?p='+p.id+'" style="flex:1">Request a quote</a>' +
+      '<button class="btn btn-s btn-sm" data-cmp="'+p.id+'" title="Compare">'+(state.compare.indexOf(p.id)>-1?CHECK:'&#8646;')+'</button>' +
+    '</div></article>';
+}
+
+function quoteIndex(id){ for(var i=0;i<state.quote.length;i++) if(state.quote[i].id===id) return i; return -1; }
+function addToQuote(id, qty){
+  var i=quoteIndex(id);
+  if(i>-1){ state.quote.splice(i,1); save(); syncChrome(); render(); toast('Removed from quote list'); return; }
+  state.quote.push({id:id, qty:qty||1});
+  save(); syncChrome(); render(); openQuote();
+  toast(fullName(byId(id))+' added');
+}
+function setQuoteQty(i, q){
+  q = Math.max(1, Math.min(100000, parseInt(q,10)||1));   /* MOQ is 1 */
+  state.quote[i].qty=q; save(); openQuote();
+  var r=parseHash(); if(r.parts[0]==='inquire') render();
+}
+function quoteTotals(){
+  var lo=0, hi=0, units=0, lines=[];
+  state.quote.forEach(function(l){
+    var p=byId(l.id); if(!p) return;
+    var u=unitPrice(p,l.qty);
+    lo += u*l.qty; hi += p.list*l.qty; units += l.qty;
+    lines.push({p:p, qty:l.qty, unit:u, total:u*l.qty, slab:slabFor(l.qty)});
+  });
+  return {lines:lines, units:units, lo:lo, hi:hi};
+}
+</script>
+<script>
+/* ============================================================
+   HOME
+   ============================================================ */
+function renderHome(el){
+  var hero = byId('panna');
+  var picks = ['panna','safha','welcome','girah-pro'].map(byId);
+  el.innerHTML =
+  '<section class="hero">' +
+    '<div class="txt">' +
+      '<span class="label">Corporate gifting</span>' +
+      '<h1>A gift that gets read,<br>not re-gifted.</h1>' +
+      '<p class="lede">E-ink readers engraved with your mark, loaded with a library, and delivered to one office or four hundred homes. Priced by quantity, from a single unit upwards.</p>' +
+      '<div class="moq"><b>MOQ 1</b> <span class="muted">order one, or one thousand</span></div>' +
+      '<div class="row" style="gap:12px;flex-wrap:wrap;margin-top:8px">' +
+        '<a class="btn btn-p" href="#/inquire">Request a quote</a>' +
+        '<a class="btn btn-s" href="#/collection">See the range</a>' +
+      '</div>' +
+      '<p class="small muted" style="margin-top:6px">Quotes returned within one working day by Simran Kaur, who handles corporate accounts.</p>' +
+    '</div>' +
+    '<div class="art"><div class="inner">'+deviceSVG(hero,320,2)+'</div></div>' +
+  '</section>' +
+
+  '<div class="kpis" style="margin-top:26px">' +
+    '<div class="kpi"><div class="k">Minimum order</div><div class="v tnum">1</div><div class="s">unit, not a carton</div></div>' +
+    '<div class="kpi"><div class="k">Quote turnaround</div><div class="v tnum">24 h</div><div class="s">one working day</div></div>' +
+    '<div class="kpi"><div class="k">Volume discount</div><div class="v tnum">up to 12%</div><div class="s">across four quantity slabs</div></div>' +
+    '<div class="kpi"><div class="k">Delivery</div><div class="v">Pan-India</div><div class="s">one address or several hundred</div></div>' +
+  '</div>' +
+
+  '<div class="orn">'+ORN+'</div>' +
+
+  '<section class="sec"><div class="narrow prose" style="max-width:64ch">' +
+    '<p class="dropcap" style="font-size:1.1rem">Most corporate gifts are chosen because they are easy to buy in bulk, which is why so many of them end up in a drawer. A reader is different in one specific way: it does not compete for attention with the phone in the same pocket, and the person who receives it either uses it every evening or does not. There is no polite middle where it sits on a shelf looking like a logo.</p>' +
+    '<p>We sell white-label e-ink readers under our own name, which means we can engrave them, load a reading list chosen by you, and put them in a box that carries your brand rather than ours. And because we hold our own stock rather than drop-shipping, the minimum order is one unit &#8212; send a sample to the person who signs off before you commit the budget.</p>' +
+  '</div></section>' +
+
+  '<section class="sec" style="padding-top:0">' +
+    '<div class="sec-h"><span class="label">Where to start</span><h2>The four most requested</h2>' +
+    '<p>Every price is a range because it moves with quantity. The lower figure is the five-hundred-unit rate, the upper is a single unit.</p></div>' +
+    '<div class="grid g4">'+picks.map(productCard).join('')+'</div>' +
+    '<div class="row" style="gap:12px;margin-top:22px"><a class="btn btn-s" href="#/collection">All eight readers</a><a class="btn btn-g" href="#/finder">Not sure? Answer four questions '+ARROW+'</a></div>' +
+  '</section>' +
+
+  '<div class="orn">'+ORN+'</div>' +
+
+  '<section class="sec">' +
+    '<div class="sec-h"><span class="label">Occasions</span><h2>What the gift is for</h2>' +
+    '<p>The occasion usually decides the tier faster than the specification does.</p></div>' +
+    '<div class="grid g3">'+OCCASIONS.map(function(o){
+      return '<a class="occ" href="#/occasions?o='+o.id+'"><span class="g">'+o.g+'</span>' +
+        '<h4>'+o.t+'</h4><p>'+o.s+'</p></a>';
+    }).join('')+'</div>' +
+  '</section>' +
+
+  '<section class="sec"><div class="card">' +
+    '<div class="sec-h" style="margin-bottom:18px"><span class="label">Volume pricing</span><h2>Per-unit price by quantity</h2>' +
+    '<p>Illustrated on the Panna 6, our most gifted reader. The same four slabs apply across the range.</p></div>' +
+    '<div class="tw">'+slabTable(byId('panna'))+'</div>' +
+    '<p class="small muted" style="margin-top:14px">Prices exclude GST at 18%, which is fully creditable against your output tax. Branding, printed boxes and individual home delivery are quoted per unit on top &#8212; see <a href="#/branding" style="color:var(--accent);text-decoration:underline">branding options</a>.</p>' +
+  '</div></section>' +
+
+  '<section class="sec">' +
+    '<div class="sec-h"><span class="label">How it works</span><h2>Inquiry to doorstep in six steps</h2></div>' +
+    processHTML() +
+  '</section>' +
+
+  '<div class="orn">'+ORN+'</div>' +
+
+  '<section class="sec">' +
+    '<div class="sec-h"><span class="label">Typical briefs</span><h2>What a request usually looks like</h2>' +
+    '<p>The shape most inquiries arrive in.</p></div>' +
+    '<div class="grid g2">'+SCENARIOS.map(function(s){
+      return '<div class="card"><div class="quoteblock">'+esc(s.q)+'</div>' +
+        '<p class="small" style="margin-top:14px">'+esc(s.a)+'</p>' +
+        '<p class="xs muted" style="margin-top:10px">'+s.v+'</p></div>';
+    }).join('')+'</div>' +
+  '</section>' +
+
+  ctaBlock();
+}
+
+function ctaBlock(){
+  return '<section class="sec"><div class="card" style="text-align:center;padding:44px 24px">' +
+    '<span class="label">Next step</span>' +
+    '<h2 style="margin:10px 0 12px">Tell us the headcount and the date</h2>' +
+    '<p class="muted" style="max-width:52ch;margin:0 auto 22px">That is genuinely all we need to come back with a price, a lead time and a sample. Minimum order is one unit, so you can hold it before you decide.</p>' +
+    '<a class="btn btn-p" href="#/inquire">Request a quote</a>' +
+    '<p class="small muted" style="margin-top:16px">Or write to <a href="mailto:orders@ekitabein.com" style="color:var(--accent);text-decoration:underline">orders@ekitabein.com</a></p>' +
+  '</div></section>';
+}
+
+function processHTML(){
+  var steps = [
+    ['Inquiry','You send headcount, occasion and the date it has to land. No account, no login.'],
+    ['Quote in 24 hours','A per-unit price against your quantity slab, branding costed separately, with the lead time stated.'],
+    ['Sample','One unit, shipped against card payment or a proforma invoice. This is what MOQ 1 is for.'],
+    ['Purchase order','You raise a PO. We issue a proforma invoice; 50% advance, balance before dispatch. Thirty-day terms for empanelled vendors.'],
+    ['Branding and production','Engraving, printed boxes and named cards. You approve a physical proof before the run.'],
+    ['Dispatch and distribution','One address, several offices, or individually to each recipient with tracking shared as a sheet.']
+  ];
+  return '<div class="steps">'+steps.map(function(s){
+    return '<div class="step"><div class="n"></div><div><h4>'+s[0]+'</h4><p>'+s[1]+'</p></div></div>';
+  }).join('')+'</div>';
+}
+
+function slabTable(p, qty){
+  var rows = SLABS.map(function(s){
+    var u = s.off===0 ? p.list : tidy(p.list*(1-s.off));
+    var active = qty ? (qty>=s.min && qty<=s.max) : false;
+    return '<tr'+(active?' class="best"':'')+'><td>'+s.label+' units</td>' +
+      '<td class="n tnum">'+money(u)+'</td>' +
+      '<td class="n tnum">'+(s.off?('-'+Math.round(s.off*100)+'%'):'list')+'</td>' +
+      '<td class="n tnum">'+money(u*Math.max(s.min,1))+'</td></tr>';
+  }).join('');
+  return '<table class="slab"><thead><tr><th>Quantity</th><th class="n">Per unit</th><th class="n">Saving</th><th class="n">From (at slab min)</th></tr></thead><tbody>'+rows+'</tbody></table>';
+}
+
+/* ============================================================
+   COLLECTION
+   ============================================================ */
+function renderCollection(el, r){
+  var q=r.q;
+  var list = PRODUCTS.filter(function(p){
+    if(q.screen && String(p.screen)!==String(q.screen)) return false;
+    if(q.input && p.input!==q.input) return false;
+    if(q.light==='1' && p.light==='none') return false;
+    if(q.budget){ var b=+q.budget; if(priceRange(p).lo > b) return false; }
+    return true;
+  });
+  if(q.sort==='plh') list.sort(function(a,b){return a.list-b.list;});
+  else if(q.sort==='phl') list.sort(function(a,b){return b.list-a.list;});
+  else if(q.sort==='screen') list.sort(function(a,b){return b.screen-a.screen;});
+
+  var filters = [
+    ['Budget per head','budget',[['Under '+money(8000),'8000'],['Under '+money(11000),'11000'],['Under '+money(15000),'15000']]],
+    ['Screen','screen',[['3.5'+INCH,'3.5'],['3.7'+INCH,'3.7'],['4.3'+INCH,'4.3'],['5.7'+INCH,'5.7'],['6'+INCH,'6'],['7'+INCH,'7']]],
+    ['Input','input',[['Touchscreen','touch'],['Physical buttons','buttons']]],
+    ['Front-light','light',[['With a front-light','1']]]
+  ];
+  var applied = Object.keys(q).filter(function(k){return ['budget','screen','input','light'].indexOf(k)>-1;});
+
+  el.innerHTML =
+  '<div class="crumbs"><a href="#/">Home</a> / The range</div>' +
+  '<section class="sec" style="padding-top:26px">' +
+    '<div class="sec-h"><span class="label">The range</span><h2>Eight readers, one house brand</h2>' +
+    '<p>All eight are built for us on white-label hardware, so every one of them can be engraved, re-skinned and boxed as yours. Prices are per unit and move with quantity; the lower figure is the five-hundred rate.</p></div>' +
+
+    '<div class="card" style="padding:16px 20px;margin-bottom:22px">' +
+      '<div class="row" style="gap:18px;flex-wrap:wrap">' +
+      filters.map(function(f){
+        return '<label class="row" style="gap:8px"><span class="label" style="letter-spacing:.12em">'+f[0]+'</span>' +
+          '<select data-filter="'+f[1]+'" style="width:auto"><option value="">Any</option>' +
+          f[2].map(function(o){ return '<option value="'+o[1]+'"'+(String(q[f[1]]||'')===o[1]?' selected':'')+'>'+o[0]+'</option>'; }).join('') +
+          '</select></label>';
+      }).join('') +
+      '<label class="row" style="gap:8px"><span class="label" style="letter-spacing:.12em">Sort</span>' +
+      '<select data-filter="sort" style="width:auto">' +
+        [['','Recommended'],['plh','Price: low to high'],['phl','Price: high to low'],['screen','Largest screen']]
+        .map(function(o){return '<option value="'+o[0]+'"'+((q.sort||'')===o[0]?' selected':'')+'>'+o[1]+'</option>';}).join('') +
+      '</select></label>' +
+      (applied.length?'<button class="btn btn-g btn-sm" data-clearall="1">Clear filters</button>':'') +
+      '</div>' +
+    '</div>' +
+
+    (list.length
+      ? '<div class="grid g3">'+list.map(productCard).join('')+'</div>'
+      : '<div class="card" style="text-align:center;padding:50px"><h3>Nothing in the range matches that</h3>' +
+        '<p class="muted small" style="margin-top:8px">Try a higher budget per head, or ask us &#8212; we source outside the standing range for orders above 250 units.</p>' +
+        '<button class="btn btn-s btn-sm" style="margin-top:16px" data-clearall="1">Clear filters</button></div>') +
+
+    '<div class="card" style="margin-top:26px"><h3 style="margin-bottom:10px">Choosing for a group rather than a person</h3>' +
+    '<div class="prose small" style="max-width:none"><p>Two rules hold up well across corporate programmes. First, <b>screen size follows the reading</b>: six inches for anyone reading books, seven for teams who read reports and papers, and under four and a half only when the gift has to be pocketable at an event. Second, <b>a front-light is worth the difference</b> when you cannot ask the recipients anything about themselves, because it is the one feature people notice missing.</p>' +
+    '<p>Where a group spans very different roles, the usual answer is a two-tier programme: a standard unit for the majority and a premium one for a named list, both on the same purchase order.</p></div></div>' +
+  '</section>';
+
+  [].forEach.call(el.querySelectorAll('[data-filter]'), function(s){
+    s.addEventListener('change', function(){ setQ(this.dataset.filter, this.value||null); });
+  });
+}
+
+/* ============================================================
+   GIFT SETS
+   ============================================================ */
+function renderBundles(el){
+  el.innerHTML =
+  '<div class="crumbs"><a href="#/">Home</a> / Gift sets</div>' +
+  '<section class="sec" style="padding-top:26px">' +
+    '<div class="sec-h"><span class="label">Curated</span><h2>Gift sets, assembled and boxed</h2>' +
+    '<p>A reader on its own is a device. In a box with a case, an engraved bookmark and a named card, it is a gift. These four are assembled, packed and labelled by us before dispatch.</p></div>' +
+    '<div class="grid g4 bgrid">'+BUNDLES.map(function(b){
+      return '<article class="bcard">' +
+        (b.badge?'<span class="tag tag-acc bcard-badge">'+esc(b.badge)+'</span>':'') +
+        '<a class="bcard-art" href="#/p/'+b.id+'">'+deviceSVG(b,168)+'</a>' +
+        '<div class="bcard-body">' +
+          '<a href="#/p/'+b.id+'"><h3>'+esc(b.name)+'</h3></a>' +
+          '<p class="bcard-tag">'+esc(b.tagline)+'</p>' +
+          '<ul class="bcard-list">'+b.contents.map(function(c){return '<li>'+esc(c)+'</li>';}).join('')+'</ul>' +
+          '<div class="rng bcard-price"><span class="v tnum">'+rangeText(b)+'</span><span class="u">per set '+DOT+' by quantity '+DOT+' excl. GST</span></div>' +
+          '<div class="bcard-cta"><a class="btn btn-p btn-sm" href="#/inquire?p='+b.id+'">Request a quote</a>' +
+          '<button class="btn btn-s btn-sm" data-short="'+b.id+'">'+(quoteIndex(b.id)>-1?CHECK+' In list':'Add to list')+'</button></div>' +
+        '</div></article>';
+    }).join('')+'</div>' +
+    '<p class="small muted" style="margin-top:20px">Sets can be recomposed around any reader in the range &#8212; swap the Panna 6 in the Milestone Box for a Safha 7, or drop the case. Tell us in the inquiry and the quote will reflect it.</p>' +
+  '</section>' + ctaBlock();
+}
+
+/* ============================================================
+   PRODUCT PAGE
+   ============================================================ */
+var pdp = { view:0, tab:'specs', qty:1 };
+function renderPDP(el, r){
+  var p = byId(r.parts[1]);
+  if(!p) return renderNotFound(el);
+  var qty = pdp.qty||1, rng = priceRange(p), u = unitPrice(p, qty), slab = slabFor(qty);
+  var inQ = quoteIndex(p.id)>-1;
+  var base = artFor(p);
+
+  el.innerHTML =
+  '<div class="crumbs"><a href="#/">Home</a> / <a href="#/'+(isBundle(p)?'bundles':'collection')+'">'+(isBundle(p)?'Gift sets':'The range')+'</a> / '+esc(fullName(p))+'</div>' +
+  '<div class="pdp">' +
+    '<div class="gallery">' +
+      '<div class="gal-main">'+deviceSVG(p,360,pdp.view)+'</div>' +
+      (!isBundle(p) ? '<div class="thumbrow">' + [[0,'Reading'],[2,'Engraved back']].map(function(v){
+          return '<button class="'+(pdp.view===v[0]?'on':'')+'" data-view="'+v[0]+'" title="'+v[1]+'" aria-label="'+v[1]+'">'+deviceSVG(p,54,v[0])+'</button>';
+        }).join('') + '</div>' +
+        '<p class="xs muted" style="text-align:center;margin-top:10px">'+({0:'A reader in use',2:'Your logo laser-engraved on the back'}[pdp.view]||'')+'</p>' : '') +
+    '</div>' +
+
+    '<div class="buybox">' +
+      '<div>' +
+        (p.badge?'<span class="tag tag-acc" style="margin-bottom:10px;display:inline-flex">'+esc(p.badge)+'</span>':'') +
+        '<h1 style="font-size:2.1rem">'+esc(fullName(p))+'</h1>' +
+        '<p class="lede" style="font-style:italic;margin-top:6px;font-size:1.05rem">'+esc(p.tagline)+'</p>' +
+      '</div>' +
+
+      '<div>' +
+        '<span class="label">Price per unit</span>' +
+        '<div class="rng" style="margin-top:6px"><span class="v tnum" style="font-size:30px">'+rangeText(p)+'</span>' +
+        '<span class="u">from the 500-unit rate to a single unit '+DOT+' excl. GST</span></div>' +
+      '</div>' +
+
+      '<div class="card" style="padding:18px">' +
+        '<div class="row" style="gap:14px;flex-wrap:wrap">' +
+          '<div class="field" style="flex:none"><label>Quantity</label>' +
+          '<div class="qty"><button data-q="-" aria-label="Fewer">&#8722;</button>' +
+          '<input id="qtyIn" inputmode="numeric" value="'+qty+'" aria-label="Quantity"><button data-q="+" aria-label="More">+</button></div></div>' +
+          '<div style="flex:1;min-width:150px"><span class="label">At this quantity</span>' +
+          '<div class="tnum" style="font-size:23px;font-weight:600;margin-top:4px">'+money(u)+' <span class="muted" style="font-size:14px;font-weight:400">per unit</span></div>' +
+          '<div class="xs muted">'+slab.label+' slab '+DOT+' order value '+money(u*qty)+' + GST</div></div>' +
+        '</div>' +
+        (qty===1?'<p class="xs" style="margin-top:12px;color:var(--ok)">'+CHECK+' A single unit is a valid order. Most buyers take one as a sample first.</p>':'') +
+      '</div>' +
+
+      '<div class="row" style="gap:11px">' +
+        '<a class="btn btn-p btn-lg" href="#/inquire?p='+p.id+'&amp;q='+qty+'" style="flex:2">Request a quote</a>' +
+        '<button class="btn btn-s btn-lg" data-short="'+p.id+'" style="flex:1">'+(inQ?CHECK+' Added':'Add to list')+'</button>' +
+      '</div>' +
+      '<p class="xs muted" style="margin-top:-8px">Sends an inquiry to orders@ekitabein.com. No payment is taken online.</p>' +
+
+      '<div class="bullets card" style="padding:18px">' +
+        '<div><span class="c">'+CHECK+'</span><span><b>Minimum order one unit</b> '+DOT+' sample before you commit</span></div>' +
+        '<div><span class="c">'+CHECK+'</span><span><b>Laser engraving</b> from '+money(149)+' per unit</span></div>' +
+        '<div><span class="c">'+CHECK+'</span><span><b>GST invoice</b> with full input credit</span></div>' +
+        '<div><span class="c">'+CHECK+'</span><span><b>One-year warranty</b>, serviced in Chandigarh</span></div>' +
+        '<div><span class="c">'+CHECK+'</span><span><b>Individual home delivery</b> available at '+money(120)+' per address</span></div>' +
+      '</div>' +
+
+      '<div class="card" style="padding:18px;background:var(--raise)">' +
+        '<span class="label">Suits</span><p class="small" style="margin-top:6px">'+esc(p.fits)+'</p>' +
+      '</div>' +
+    '</div>' +
+  '</div>' +
+
+  '<div class="tabs">' +
+    [['specs',isBundle(p)?'What is in the set':'Specifications'],['pricing','Volume pricing'],['branding','Branding'],['lead','Lead times'],['terms','Terms']]
+      .map(function(t){ return '<button data-tab="'+t[0]+'" class="'+(pdp.tab===t[0]?'on':'')+'">'+t[1]+'</button>'; }).join('') +
+  '</div><div class="tabpane">'+pdpTab(p, qty)+'</div>' +
+
+  '<section class="sec"><div class="sec-h"><span class="label">Alternatives</span><h2>Also considered for this brief</h2></div>' +
+  '<div class="grid g3">'+related(p).map(productCard).join('')+'</div></section>';
+
+  var qi=document.getElementById('qtyIn');
+  if(qi) qi.addEventListener('change', function(){ pdp.qty=Math.max(1,parseInt(this.value,10)||1); render(); });
+}
+function related(p){
+  return ALL.filter(function(o){ return o.id!==p.id; })
+    .sort(function(a,b){ return Math.abs(a.list-p.list)-Math.abs(b.list-p.list); }).slice(0,3);
+}
+function pdpTab(p, qty){
+  var t=pdp.tab;
+  if(t==='pricing'){
+    return '<div class="prose" style="max-width:none"><h3 style="margin-bottom:10px">Per-unit price by quantity</h3>' +
+      '<p class="small muted" style="margin-bottom:16px;max-width:62ch">Four slabs, applied automatically. There is no minimum &#8212; a single unit is quoted at the list price, and the rate falls as the quantity rises. Prices exclude GST at 18%, which you reclaim in full.</p>' +
+      '<div class="tw">'+slabTable(p, qty)+'</div>' +
+      '<p class="small muted" style="margin-top:14px">Above 1,000 units we quote against the specific brief rather than the slab. Mixed orders across several models count together toward one slab.</p></div>';
+  }
+  if(t==='branding'){
+    return '<h3 style="margin-bottom:10px">What can carry your brand</h3>' +
+      '<p class="small muted" style="margin-bottom:18px;max-width:62ch">Costed per unit on top of the device price. You approve a physical proof before any production run.</p>' +
+      '<div class="tw"><table class="slab"><thead><tr><th>Option</th><th>What it is</th><th class="n">Price</th><th class="n">From</th></tr></thead><tbody>' +
+      BRANDING.map(function(b){
+        return '<tr><td><b>'+b.t+'</b></td><td class="muted">'+b.s+'</td>' +
+          '<td class="n tnum">'+(b.price?money(b.price):'Included')+'</td>' +
+          '<td class="n">'+(b.min>1?b.min+' units':'1 unit')+'</td></tr>';
+      }).join('')+'</tbody></table></div>' +
+      '<p class="small muted" style="margin-top:14px">Engraving adds five working days to the lead time. <a href="#/branding" style="color:var(--accent);text-decoration:underline">See the full branding guide</a>.</p>';
+  }
+  if(t==='lead'){
+    return '<h3 style="margin-bottom:14px">Lead times</h3><div class="tw"><table class="slab"><thead><tr><th>Quantity</th><th>Dispatch</th><th>With branding</th></tr></thead><tbody>' +
+      LEADTIMES.map(function(l){ return '<tr><td>'+l[0]+'</td><td>'+l[1]+'</td><td class="muted">'+l[2]+'</td></tr>'; }).join('') +
+      '</tbody></table></div>' +
+      '<p class="small muted" style="margin-top:14px">Festive season is the constraint worth planning around: engraving slots for Diwali close at the end of September, and production for orders above 250 units should be booked by August.</p>';
+  }
+  if(t==='terms'){
+    return '<div class="prose"><h3 style="margin-bottom:10px">Commercial terms</h3>' +
+      '<div class="bullets">' +
+      '<div><span class="c">'+CHECK+'</span><span><b>Payment</b> &#8212; 50% advance against proforma invoice, balance before dispatch. Thirty-day credit for empanelled vendors after the first order.</span></div>' +
+      '<div><span class="c">'+CHECK+'</span><span><b>GST</b> &#8212; 18% on the invoice, fully creditable. HSN 85437099. Your GSTIN goes on the invoice at the inquiry stage.</span></div>' +
+      '<div><span class="c">'+CHECK+'</span><span><b>Warranty</b> &#8212; twelve months from delivery, serviced from Chandigarh. We hold spare stock against every corporate order.</span></div>' +
+      '<div><span class="c">'+CHECK+'</span><span><b>Dead on arrival</b> &#8212; replaced within seven days, freight both ways at our cost.</span></div>' +
+      '<div><span class="x">'+CROSS+'</span><span><b>Engraved stock is not returnable</b> once produced, which is exactly why the proof is approved physically first.</span></div>' +
+      '</div></div>';
+  }
+  /* specs / contents */
+  if(isBundle(p)){
+    var base = byId(p.base);
+    return '<div class="cols-main" style="gap:34px">' +
+      '<div><h3 style="margin-bottom:12px">What is in the set</h3>' +
+      '<div class="bullets">'+p.contents.map(function(c){return '<div><span class="c">'+CHECK+'</span><span>'+esc(c)+'</span></div>';}).join('')+'</div>' +
+      '<h3 style="margin:26px 0 12px">The reader inside</h3>' +
+      '<div class="tw"><table class="spectable"><tbody>'+specRows(base).map(function(r){
+        return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'; }).join('')+'</tbody></table></div></div>' +
+      '<div class="card"><h4 style="margin-bottom:8px">About this set</h4><p class="small muted">'+esc(p.blurb)+'</p></div></div>';
+  }
+  return '<div class="cols-main" style="gap:34px">' +
+    '<div><h3 style="margin-bottom:12px">Specifications</h3>' +
+    '<div class="tw"><table class="spectable"><tbody>'+specRows(p).map(function(r){
+      return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'; }).join('')+'</tbody></table></div></div>' +
+    '<div class="card"><h4 style="margin-bottom:8px">About this reader</h4><p class="small muted">'+esc(p.blurb)+'</p></div></div>';
+}
+function specRows(p){
+  return [
+    ['Display', p.screen+'-inch E Ink '+DOT+' '+p.res+' '+DOT+' '+p.ppi+' ppi'],
+    ['Front-light', p.light==='none'?'None':(p.warm?'Adjustable warm to cool':'White front-light, 24 levels')],
+    ['Input', p.input==='buttons'?'Physical page-turn keys and d-pad':'Capacitive touchscreen'],
+    ['Storage', p.storage+' GB '+DOT+' about '+(p.storage*1000).toLocaleString('en-IN')+' books'],
+    ['Connectivity', (p.wifi?'Wi-Fi 802.11 b/g/n '+DOT+' ':'')+'USB-C 2.0'],
+    ['Battery', p.battery],
+    ['Weight', p.weight+' g'],
+    ['Dimensions', p.dims],
+    ['Formats', 'EPUB, PDF, MOBI, AZW3, TXT, FB2'+(p.screen>=5?', CBZ, CBR':'')],
+    ['HSN code', '85437099 '+DOT+' GST 18%'],
+    ['Certification', 'BIS CRS (adapter and cell) '+DOT+' WPC ETA'+(p.wifi?' for Wi-Fi':'')],
+    ['Country of origin', 'China '+DOT+' imported and marketed by ekitabein pvt. ltd.']
+  ];
+}
+</script>
+<script>
+/* ============================================================
+   QUOTE LIST (replaces the retail cart - it collects items for
+   one inquiry, it never takes a payment)
+   ============================================================ */
+function openQuote(){
+  var d=document.getElementById('drawer'), t=quoteTotals();
+  d.innerHTML =
+    '<div class="drawer-h"><h3 style="flex:1">Quote list <span class="muted" style="font-weight:400">('+t.lines.length+')</span></h3>' +
+    '<button class="btn btn-g" id="dClose" aria-label="Close">&#215;</button></div>' +
+    '<div class="drawer-b">' + (t.lines.length ? t.lines.map(function(l,i){
+      return '<div class="line"><a class="art" href="#/p/'+l.p.id+'">'+deviceSVG(l.p,72)+'</a>' +
+        '<div class="stack" style="gap:7px"><a href="#/p/'+l.p.id+'" style="font-weight:600;font-size:15px">'+esc(fullName(l.p))+'</a>' +
+        '<div class="qty"><button data-qq="'+i+':-" aria-label="Fewer">&#8722;</button>' +
+        '<input data-qi="'+i+'" inputmode="numeric" value="'+l.qty+'" aria-label="Quantity"><button data-qq="'+i+':+" aria-label="More">+</button></div>' +
+        '<span class="xs muted">'+money(l.unit)+' per unit at the '+l.slab.label+' slab</span>' +
+        '<button class="btn btn-g xs" data-short="'+l.p.id+'" style="align-self:flex-start;color:var(--sale)">Remove</button></div>' +
+        '<div class="tnum" style="font-weight:600">'+money(l.total)+'</div></div>';
+      }).join('')
+      : '<div style="text-align:center;padding:56px 12px"><p class="muted">Nothing on the list yet.</p>' +
+        '<p class="small muted" style="margin-top:8px">Add a few readers and send them as one inquiry.</p>' +
+        '<a class="btn btn-s btn-sm" href="#/collection" style="margin-top:16px" id="dShop">See the range</a></div>') +
+    '</div>' +
+    (t.lines.length ? '<div class="drawer-f">' +
+      '<div class="row" style="justify-content:space-between"><span class="small muted">'+t.units+' unit'+(t.units===1?'':'s')+'</span>' +
+      '<b class="tnum" style="font-size:19px">'+money(t.lo)+'</b></div>' +
+      '<div class="xs muted" style="margin-top:-6px">Indicative, excl. GST and branding. The quote is confirmed by Simran.</div>' +
+      '<a class="btn btn-p btn-lg" href="#/inquire" id="dGo">Request a quote</a></div>' : '');
+  d.classList.add('on');
+  document.getElementById('scrim').classList.add('on');
+  var c=document.getElementById('dClose'); if(c) c.addEventListener('click', closeOverlays);
+  ['dGo','dShop'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('click', closeOverlays); });
+  [].forEach.call(d.querySelectorAll('[data-qi]'), function(inp){
+    inp.addEventListener('change', function(){ setQuoteQty(+this.dataset.qi, this.value); });
+  });
+}
+document.getElementById('quoteBtn').addEventListener('click', function(){ openQuote(); });
+
+/* ============================================================
+   INQUIRY FORM - the only conversion path on this site
+   ============================================================ */
+var inq = { branding:[], delivery:'single' };
+function renderInquire(el, r){
+  /* seed the list from a direct "request a quote" on a product */
+  if(r.q.p && quoteIndex(r.q.p)===-1){
+    state.quote.push({id:r.q.p, qty:Math.max(1, parseInt(r.q.q,10)||1)});
+    save(); syncChrome();
+  }
+  var t = quoteTotals();
+
+  el.innerHTML =
+  '<div class="crumbs"><a href="#/">Home</a> / Request a quote</div>' +
+  '<section class="sec" style="padding-top:26px">' +
+    '<div class="cols-main" style="gap:38px">' +
+
+    '<div>' +
+      '<div class="sec-h"><span class="label">Request a quote</span><h2>Tell us the headcount and the date</h2>' +
+      '<p>Simran comes back within one working day with a per-unit price, a lead time and, if you want one, a single sample.</p></div>' +
+
+      '<div class="card">' +
+        '<h4 style="margin-bottom:14px">Your details</h4>' +
+        '<div class="grid2">' +
+          '<div class="field"><label>Company <span class="req">*</span></label><input id="f_company" placeholder="Registered company name"></div>' +
+          '<div class="field"><label>Your name <span class="req">*</span></label><input id="f_name" placeholder="Who we should reply to"></div>' +
+          '<div class="field"><label>Work email <span class="req">*</span></label><input id="f_email" type="email" placeholder="you@company.com"></div>' +
+          '<div class="field"><label>Phone <span class="req">*</span></label><input id="f_phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile"></div>' +
+          '<div class="field"><label>Team</label><select id="f_team">' +
+            ['Human resources','Administration','Procurement','Marketing','Founder / leadership','Other'].map(function(o){return '<option>'+o+'</option>';}).join('') +
+          '</select></div>' +
+          '<div class="field"><label>GSTIN <span class="muted">(optional)</span></label><input id="f_gstin" placeholder="04AABCE1234F1Z5" style="text-transform:uppercase"><span class="hint">Goes on the invoice so you can claim input credit.</span></div>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="card" style="margin-top:18px">' +
+        '<h4 style="margin-bottom:14px">The gift</h4>' +
+        '<div class="grid2">' +
+          '<div class="field"><label>Occasion</label><select id="f_occasion">' +
+            ['Diwali / festive','Onboarding / welcome kits','Work anniversaries','Client &amp; partner gifting','Conference / offsite','Sales incentives','Farewell / retirement','Something else'].map(function(o){return '<option>'+o+'</option>';}).join('') +
+          '</select></div>' +
+          '<div class="field"><label>Quantity <span class="req">*</span></label><input id="f_qty" inputmode="numeric" value="'+(t.units||1)+'"><span class="hint">Minimum order is one unit.</span></div>' +
+          '<div class="field"><label>Budget per unit <span class="muted">(optional)</span></label><select id="f_budget">' +
+            ['Not sure yet','Under '+money(8000),money(8000)+' to '+money(11000),money(11000)+' to '+money(15000),'Above '+money(15000)].map(function(o){return '<option>'+o+'</option>';}).join('') +
+          '</select></div>' +
+          '<div class="field"><label>Needed by <span class="req">*</span></label><input id="f_by" type="date"></div>' +
+        '</div>' +
+
+        '<div class="field" style="margin-top:16px"><label>Where does it ship?</label>' +
+        '<div class="checks">' +
+          [['single','One address','Head office or a single warehouse'],
+           ['offices','Several offices','We split the cartons by location'],
+           ['homes','Individual homes','Addressed to each recipient, tracked']].map(function(d){
+            return '<label class="check'+(inq.delivery===d[0]?' on':'')+'"><input type="radio" name="dl" '+(inq.delivery===d[0]?'checked':'')+' data-dl="'+d[0]+'">' +
+              '<span><span class="t">'+d[1]+'</span><br><span class="s">'+d[2]+'</span></span></label>';
+          }).join('') +
+        '</div></div>' +
+
+        '<div class="field" style="margin-top:16px"><label>Branding</label>' +
+        '<div class="checks">' + BRANDING.map(function(b){
+          var on=inq.branding.indexOf(b.id)>-1;
+          return '<label class="check'+(on?' on':'')+'"><input type="checkbox" '+(on?'checked':'')+' data-br="'+b.id+'">' +
+            '<span><span class="t">'+b.t+'</span><br><span class="s">'+(b.price?money(b.price)+' '+b.unit:'Included')+(b.min>1?' '+DOT+' from '+b.min+' units':'')+'</span></span></label>';
+        }).join('') + '</div></div>' +
+
+        '<div class="field" style="margin-top:16px"><label>Anything else</label>' +
+        '<textarea id="f_notes" rows="4" placeholder="Reading list you want loaded, a colour to match, a hard deadline, an approval process we should know about."></textarea></div>' +
+      '</div>' +
+
+      '<button class="btn btn-p btn-lg" id="sendBtn" style="margin-top:20px">Send inquiry</button>' +
+      '<p class="small muted" style="text-align:center;margin-top:12px">Goes to <b>orders@ekitabein.com</b>. No payment is taken and no account is created.</p>' +
+    '</div>' +
+
+    /* summary rail */
+    '<div class="stack" style="gap:16px">' +
+      '<div class="card"><h4 style="margin-bottom:12px">On your list</h4>' +
+      (t.lines.length ? t.lines.map(function(l){
+        return '<div class="row" style="gap:12px;padding:11px 0;border-top:1px solid var(--rule)">' +
+          '<div style="width:42px;display:flex;justify-content:center">'+deviceSVG(l.p,48)+'</div>' +
+          '<div class="stack" style="flex:1"><span class="small" style="font-weight:600">'+esc(fullName(l.p))+'</span>' +
+          '<span class="xs muted">'+l.qty+' '+TIMES+' '+money(l.unit)+'</span></div>' +
+          '<span class="small tnum">'+money(l.total)+'</span></div>';
+      }).join('') +
+      '<div class="row" style="justify-content:space-between;border-top:1px solid var(--rule-2);margin-top:10px;padding-top:12px">' +
+      '<b>Indicative</b><b class="tnum" style="font-size:18px">'+money(t.lo)+'</b></div>' +
+      '<p class="xs muted" style="margin-top:6px">Excludes GST and branding. Final pricing confirmed in the quote.</p>'
+      : '<p class="small muted">No products selected. That is fine &#8212; send the brief and we will recommend.</p>' +
+        '<a class="btn btn-s btn-sm" href="#/collection" style="margin-top:12px">Browse the range</a>') +
+      '</div>' +
+      '<div class="card" style="background:var(--raise)"><h4 style="margin-bottom:8px">Who picks this up</h4>' +
+      '<p class="small"><b>Simran Kaur</b><br><span class="muted">Corporate accounts</span></p>' +
+      '<p class="small muted" style="margin-top:8px">Replies within one working day, usually the same afternoon. She will ask for a sample address if you want to see one first.</p></div>' +
+      '<div class="card"><h4 style="margin-bottom:8px">Minimum order</h4>' +
+      '<p class="small muted">One unit. There is no carton minimum and no first-order value. Buy a single sample, then decide.</p></div>' +
+    '</div>' +
+
+    '</div>' +
+  '</section>';
+
+  var b=document.getElementById('sendBtn');
+  if(b) b.addEventListener('click', sendInquiry);
+}
+
+/* ---- compose and send ---- */
+function inquiryEmail(rec){
+  var L=[];
+  L.push('New corporate gifting inquiry');
+  L.push('Reference: '+rec.ref);
+  L.push('');
+  L.push('COMPANY');
+  L.push('  Company    : '+rec.company);
+  L.push('  Contact    : '+rec.name+' ('+rec.team+')');
+  L.push('  Email      : '+rec.email);
+  L.push('  Phone      : +91 '+rec.phone);
+  if(rec.gstin) L.push('  GSTIN      : '+rec.gstin);
+  L.push('');
+  L.push('REQUIREMENT');
+  L.push('  Occasion   : '+rec.occasion);
+  L.push('  Quantity   : '+rec.qty+' unit(s)');
+  L.push('  Budget     : '+rec.budget);
+  L.push('  Needed by  : '+(rec.by||'not stated'));
+  L.push('  Ships to   : '+rec.deliveryLabel);
+  L.push('  Branding   : '+(rec.branding.length?rec.branding.join(', '):'none requested'));
+  L.push('');
+  if(rec.lines.length){
+    L.push('PRODUCTS OF INTEREST');
+    rec.lines.forEach(function(l){
+      L.push('  '+l.name+' -- '+l.qty+' x '+money(l.unit)+' = '+money(l.total)+'  ['+l.slab+' slab]');
+    });
+    L.push('  Indicative total (excl. GST and branding): '+money(rec.indicative));
+    L.push('');
+  }
+  if(rec.notes){ L.push('NOTES'); L.push('  '+rec.notes); L.push(''); }
+  L.push('Sent from ekitabein.com/business');
+  return L.join('\n');
+}
+function sendInquiry(){
+  function v(id){ var e=document.getElementById(id); return e ? e.value.trim() : ''; }
+  var company=v('f_company'), name=v('f_name'), email=v('f_email'), phone=v('f_phone').replace(/\D/g,'');
+  if(!company){ toast('Company name is required'); document.getElementById('f_company').focus(); return; }
+  if(!name){ toast('Your name is required'); document.getElementById('f_name').focus(); return; }
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ toast('Enter a valid work email'); document.getElementById('f_email').focus(); return; }
+  if(phone.length!==10){ toast('Enter a 10-digit mobile number'); document.getElementById('f_phone').focus(); return; }
+  var qty=Math.max(1, parseInt(v('f_qty'),10)||1);
+  var by=v('f_by');
+  if(!by){ toast('Tell us when you need it'); document.getElementById('f_by').focus(); return; }
+  var gstin=v('f_gstin').toUpperCase();
+  if(gstin && !/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[A-Z0-9]{3}$/.test(gstin)){ toast('That GSTIN does not look right'); return; }
+
+  var t=quoteTotals();
+  var dl={single:'One address',offices:'Several offices',homes:'Individual home addresses'}[inq.delivery];
+  var rec = {
+    ref: 'EKQ-' + String(new Date().getFullYear()).slice(2) + '-' + String(1000+state.seq).slice(1),
+    at: Date.now(), company:company, name:name, email:email, phone:phone,
+    team: v('f_team'), gstin:gstin, occasion: v('f_occasion'), qty:qty,
+    budget: v('f_budget'), by:by, delivery:inq.delivery, deliveryLabel:dl,
+    branding: inq.branding.map(function(id){ for(var i=0;i<BRANDING.length;i++) if(BRANDING[i].id===id) return BRANDING[i].t; return id; }),
+    notes: v('f_notes'),
+    lines: t.lines.map(function(l){ return {name:fullName(l.p), qty:l.qty, unit:l.unit, total:l.total, slab:l.slab.label}; }),
+    indicative: t.lo
+  };
+  state.seq++;
+  rec.body = inquiryEmail(rec);
+  state.inquiries.unshift(rec);
+  state.quote = [];
+  inq = { branding:[], delivery:'single' };
+  save(); syncChrome();
+  go('#/sent/'+rec.ref);
+}
+
+/* ---- confirmation ---- */
+function renderSent(el, r){
+  var rec = null;
+  for(var i=0;i<state.inquiries.length;i++) if(state.inquiries[i].ref===r.parts[1]) rec=state.inquiries[i];
+  if(!rec) return renderNotFound(el);
+  var mailto = 'mailto:orders@ekitabein.com?subject=' +
+    encodeURIComponent('Corporate gifting inquiry ' + rec.ref + ' ' + DASH + ' ' + rec.company) +
+    '&body=' + encodeURIComponent(rec.body);
+
+  el.innerHTML =
+  '<div class="confirm">' +
+    '<div class="seal">'+CHECK+'</div>' +
+    '<h1>Inquiry sent</h1>' +
+    '<p class="lede" style="margin-top:10px">Simran from our team will contact you shortly.</p>' +
+    '<p class="small muted" style="margin-top:16px">A copy has gone to <b>orders@ekitabein.com</b>. Your reference is <b class="tnum">'+esc(rec.ref)+'</b> &#8212; quote it if you write in before we reach you.</p>' +
+
+    '<div class="row" style="gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap">' +
+      '<a class="btn btn-p" href="'+mailto+'">Open it in your email app</a>' +
+      '<button class="btn btn-s" id="copyBtn">Copy the details</button>' +
+    '</div>' +
+    '<p class="xs muted" style="margin-top:12px">Opens your mail client with the message already written, in case you want a copy in your sent folder.</p>' +
+
+    '<div class="recap">' +
+      '<h4 style="margin-bottom:14px">What we received</h4>' +
+      '<dl>' +
+        '<dt>Company</dt><dd>'+esc(rec.company)+'</dd>' +
+        '<dt>Contact</dt><dd>'+esc(rec.name)+' '+DOT+' '+esc(rec.email)+' '+DOT+' +91 '+esc(rec.phone)+'</dd>' +
+        '<dt>Occasion</dt><dd>'+esc(rec.occasion)+'</dd>' +
+        '<dt>Quantity</dt><dd class="tnum">'+rec.qty+' unit'+(rec.qty===1?'':'s')+'</dd>' +
+        '<dt>Needed by</dt><dd>'+esc(rec.by)+'</dd>' +
+        '<dt>Ships to</dt><dd>'+esc(rec.deliveryLabel)+'</dd>' +
+        '<dt>Branding</dt><dd>'+(rec.branding.length?esc(rec.branding.join(', ')):'None requested')+'</dd>' +
+        (rec.gstin?'<dt>GSTIN</dt><dd>'+esc(rec.gstin)+'</dd>':'') +
+      '</dl>' +
+      (rec.lines.length ? '<div style="margin-top:18px"><h4 style="margin-bottom:10px">Products of interest</h4>' +
+        rec.lines.map(function(l){
+          return '<div class="row" style="justify-content:space-between;gap:14px;padding:7px 0;border-top:1px solid var(--rule)">' +
+            '<span class="small">'+esc(l.name)+' <span class="muted">'+TIMES+' '+l.qty+'</span></span>' +
+            '<span class="small tnum">'+money(l.total)+'</span></div>';
+        }).join('') +
+        '<p class="xs muted" style="margin-top:10px">Indicative only. Excludes GST and branding; the quote confirms the final figure.</p></div>' : '') +
+    '</div>' +
+
+    '<div class="card" style="margin-top:20px;text-align:left"><h4 style="margin-bottom:10px">What happens next</h4>' +
+    '<div class="steps" style="margin-top:-6px">' +
+      ['Simran reads the brief and comes back within one working day, usually sooner.',
+       'You get a per-unit price against your quantity, branding costed separately, and a firm lead time.',
+       'If you want a sample, one unit ships before you commit to anything.'].map(function(s){
+        return '<div class="step" style="padding:12px 0"><div class="n"></div><div><p>'+s+'</p></div></div>';
+      }).join('') +
+    '</div></div>' +
+
+    '<div class="row" style="gap:12px;justify-content:center;margin-top:26px">' +
+      '<a class="btn btn-s" href="#/">Back to the store</a>' +
+      '<a class="btn btn-g" href="#/inquiries">See the inquiry log</a>' +
+    '</div>' +
+  '</div>';
+
+  var cb=document.getElementById('copyBtn');
+  if(cb) cb.addEventListener('click', function(){
+    var ta=document.createElement('textarea');
+    ta.value=rec.body; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); toast('Copied to the clipboard'); }
+    catch(e){ toast('Could not copy automatically'); }
+    ta.remove();
+  });
+}
+
+/* ---- inquiry log ---- */
+function renderInquiries(el){
+  var q=state.inquiries;
+  el.innerHTML =
+  '<div class="crumbs"><a href="#/">Home</a> / Inquiry log</div>' +
+  '<section class="sec" style="padding-top:26px">' +
+    '<div class="sec-h"><span class="label">Internal</span><h2>Inquiry log</h2>' +
+    '<p>Every inquiry raised on this site, kept on this device.</p></div>' +
+    (q.length ? '<div class="card" style="padding:0"><div class="tw"><table class="dtable"><thead><tr>' +
+      '<th>Reference</th><th>Company</th><th>Contact</th><th>Occasion</th><th class="tnum">Qty</th><th>Needed by</th><th class="tnum">Indicative</th></tr></thead><tbody>' +
+      q.map(function(r){
+        return '<tr><td><b>'+esc(r.ref)+'</b><div class="xs muted">'+new Date(r.at).toLocaleDateString('en-IN',{day:'numeric',month:'short'})+'</div></td>' +
+          '<td>'+esc(r.company)+(r.gstin?'<div class="xs muted">'+esc(r.gstin)+'</div>':'')+'</td>' +
+          '<td>'+esc(r.name)+'<div class="xs muted">'+esc(r.email)+'</div></td>' +
+          '<td>'+esc(r.occasion)+'</td><td class="tnum">'+r.qty+'</td><td>'+esc(r.by)+'</td>' +
+          '<td class="tnum">'+(r.indicative?money(r.indicative):DASH)+'</td></tr>';
+      }).join('') + '</tbody></table></div></div>' +
+      '<button class="btn btn-s btn-sm" id="clearInq" style="margin-top:18px">Clear the log</button>'
+    : '<div class="card" style="text-align:center;padding:56px"><h3>No inquiries yet</h3>' +
+      '<p class="muted small" style="margin-top:8px">Send one from any product page and it will appear here.</p>' +
+      '<a class="btn btn-p btn-sm" href="#/inquire" style="margin-top:18px;display:inline-flex">Request a quote</a></div>') +
+  '</section>';
+  var c=document.getElementById('clearInq');
+  if(c) c.addEventListener('click', function(){ state.inquiries=[]; save(); render(); toast('Log cleared'); });
+}
+</script>
+<script>
+/* ============================================================
+   BRANDING
+   ============================================================ */
+function renderBranding(el){
+  el.innerHTML =
+  '<div class="crumbs"><a href="#/">Home</a> / Branding</div>' +
+  '<section class="sec" style="padding-top:26px">' +
+    '<div class="sec-h"><span class="label">Branding</span><h2>Your mark, quietly placed</h2>' +
+    '<p>There is a line between a gift with your name on it and a piece of merchandise. We put the logo in one place on the back, where the recipient sees it once, and leave the reading surface alone.</p></div>' +
+
+    '<div class="cols2">' +
+      '<div class="card" style="text-align:center"><div style="background:var(--surface-2);border-radius:var(--r-s);padding:22px 0;margin-bottom:14px">'+deviceSVG(byId('panna'),230,2)+'</div>' +
+      '<h4>Laser engraving</h4><p class="small muted" style="margin-top:6px">A single-position mark on the back shell, etched rather than printed, so it does not wear off. Vector artwork, one colour.</p>' +
+      '<p class="small" style="margin-top:8px"><b>'+money(149)+'</b> per unit '+DOT+' from one unit '+DOT+' adds 5 working days</p></div>' +
+
+      '<div class="card"><h4 style="margin-bottom:8px">Where the mark goes</h4>' +
+      '<p class="small muted">One position on the back shell, sized to sit under the hand rather than across it. We do not brand the front bezel or the reading surface, because a gift that looks like signage stops being a gift.</p>' +
+      '<p class="small muted" style="margin-top:12px">Minimum height 6 mm, single colour, vector artwork. Send an SVG, AI, EPS or a PDF with live paths and we will return a proof on a real unit.</p>' +
+      '<a class="btn btn-s btn-sm" href="#/inquire" style="margin-top:14px">Ask for a proof</a></div>' +
+    '</div>' +
+
+    '<div class="card" style="margin-top:26px"><h3 style="margin-bottom:14px">Everything you can specify</h3>' +
+    '<div class="tw"><table class="slab"><thead><tr><th>Option</th><th>What it is</th><th class="n">Price</th><th class="n">Minimum</th></tr></thead><tbody>' +
+    BRANDING.map(function(b){
+      return '<tr><td><b>'+b.t+'</b></td><td class="muted">'+b.s+'</td>' +
+        '<td class="n tnum">'+(b.price?money(b.price)+'<div class="xs muted">'+b.unit+'</div>':'Included')+'</td>' +
+        '<td class="n">'+(b.min>1?b.min+' units':'1 unit')+'</td></tr>';
+    }).join('') + '</tbody></table></div></div>' +
+
+    '<div class="orn">'+ORN+'</div>' +
+
+    '<div class="cols2">' +
+      '<div class="card"><h3 style="margin-bottom:10px">Artwork we can use</h3>' +
+      '<div class="bullets">' +
+      '<div><span class="c">'+CHECK+'</span><span>Vector files &#8212; SVG, AI, EPS or a PDF with live paths</span></div>' +
+      '<div><span class="c">'+CHECK+'</span><span>A single-colour mark, or one we can reduce to single colour for you</span></div>' +
+      '<div><span class="x">'+CROSS+'</span><span>Photographs and gradients &#8212; engraving is a line process, not a print</span></div>' +
+      '<div><span class="x">'+CROSS+'</span><span>Anything under 6 mm tall; fine detail closes up on the shell</span></div>' +
+      '</div></div>' +
+      '<div class="card"><h3 style="margin-bottom:10px">The proof</h3>' +
+      '<p class="small muted">Nothing goes into production until you have held one. We engrave a single unit, photograph it against a scale, and courier it to whoever signs off. That unit is billable and counts toward the order.</p>' +
+      '<p class="small muted" style="margin-top:12px">This is the practical reason our minimum order is one. A physical proof catches the problems a PDF never does &#8212; a mark that is too fine, a colour that vanishes on dark shell, a name spelled the way the system had it rather than the way the person does.</p>' +
+      '<a class="btn btn-s btn-sm" href="#/inquire" style="margin-top:14px">Ask for a proof</a></div>' +
+    '</div>' +
+  '</section>' + ctaBlock();
+}
+
+/* ============================================================
+   OCCASIONS
+   ============================================================ */
+function renderOccasions(el, r){
+  var sel = r.q.o;
+  var occ = null;
+  for(var i=0;i<OCCASIONS.length;i++) if(OCCASIONS[i].id===sel) occ=OCCASIONS[i];
+  el.innerHTML =
+  '<div class="crumbs"><a href="#/">Home</a> / Occasions'+(occ?' / '+occ.t:'')+'</div>' +
+  '<section class="sec" style="padding-top:26px">' +
+    (occ
+      ? '<div class="sec-h"><span class="label">Occasion</span><h2>'+occ.t+'</h2><p>'+occ.s+'</p></div>' +
+        '<div class="grid g3">'+occ.picks.map(byId).filter(Boolean).map(productCard).join('')+'</div>' +
+        '<div class="row" style="gap:12px;margin-top:24px"><a class="btn btn-p" href="#/inquire">Request a quote</a>' +
+        '<a class="btn btn-g" href="#/occasions">All occasions</a></div>'
+      : '<div class="sec-h"><span class="label">Occasions</span><h2>What the gift is for</h2>' +
+        '<p>The occasion tends to decide the tier faster than the specification does. Pick the one closest to your brief and we will show what usually goes out for it.</p></div>' +
+        '<div class="grid g2">'+OCCASIONS.map(function(o){
+          return '<a class="occ" href="#/occasions?o='+o.id+'"><span class="g">'+o.g+'</span><h4>'+o.t+'</h4>' +
+            '<p>'+o.s+'</p><p class="small" style="margin-top:10px;color:var(--accent)">Usually '+o.picks.map(function(id){var x=byId(id);return x?esc(fullName(x)):'';}).filter(Boolean).slice(0,2).join(', ')+' '+ARROW+'</p></a>';
+        }).join('')+'</div>') +
+  '</section>' + (occ?ctaBlock():'');
+}
+
+/* ============================================================
+   GIFT FINDER
+   ============================================================ */
+var finder = { step:0, ans:{} };
+var FQ = [
+  {k:'who', q:'Who is receiving these?', o:[['staff','Our own employees'],['clients','Clients or partners'],['event','Event or conference delegates'],['few','A short, named list']]},
+  {k:'count', q:'Roughly how many?', o:[['1','Just one, as a sample'],['25','Under 50'],['100','50 to 250'],['500','More than 250']]},
+  {k:'budget', q:'Budget per head?', o:[['low','Under '+money(8000)],['mid',money(8000)+' to '+money(11000)],['high',money(11000)+' to '+money(15000)],['open','Open, if it is right']]},
+  {k:'read', q:'What will they read on it?', o:[['books','Books, mostly fiction'],['work','Reports, papers, case studies'],['mixed','No idea, honestly'],['travel','On the move, commuting']]}
+];
+function scoreFinder(a){
+  return ALL.map(function(p){
+    var s=0, why=[];
+    var base = isBundle(p) ? byId(p.base) : p;
+    var price = priceRange(p).lo;
+    if(a.budget==='low'){ if(price<=8000){s+=6; why.push('it lands inside a sub-'+money(8000)+' per-head budget');} else s-=7; }
+    else if(a.budget==='mid'){ if(price>=7000&&price<=11000){s+=6; why.push('it sits in the middle of your budget band');} else s-=3; }
+    else if(a.budget==='high'){ if(price>=8500&&price<=15000){s+=6; why.push('it uses the budget without overshooting it');} else s-=2; }
+    else { s+=2; }
+    if(a.count==='500'){ if(price<=9000){s+=4; why.push('the per-unit rate at 500 makes the total workable');} if(isBundle(p)&&p.id==='conference'){s+=5;} }
+    if(a.count==='1'){ s+=1; }
+    if(a.who==='event'){ if(base.screen<=4.3){s+=4; why.push('it is small enough for a delegate bag');} if(p.id==='conference'){s+=6; why.push('it is packed and counted for events');} }
+    if(a.who==='clients'){ if(base.input==='buttons'){s+=5; why.push('the button-driven design is the thing clients ask about');} if(isBundle(p)&&p.id==='executive'){s+=6;} }
+    if(a.who==='staff'){ if(isBundle(p)&&(p.id==='welcome'||p.id==='milestone')){s+=4; why.push('it arrives boxed and named, which matters for staff gifting');} }
+    if(a.who==='few'){ if(price>=11000){s+=4; why.push('a short list justifies the premium tier');} }
+    if(a.read==='work'){ if(base.screen>=7){s+=6; why.push('a seven-inch page holds a report column without reflowing it');} else if(base.screen<5) s-=4; }
+    if(a.read==='books'){ if(base.screen===6){s+=4; why.push('six inches is the paperback page size');} }
+    if(a.read==='travel'){ if(base.weight<=160){s+=4; why.push('it is light enough to hold on a commute');} if(base.input==='buttons'){s+=3;} }
+    if(a.read==='mixed'){ if(base.light!=='none'){s+=4; why.push('a front-light is the feature people notice missing when you cannot ask them anything');} }
+    return {p:p, s:s, why:why};
+  }).sort(function(x,y){ return y.s-x.s; });
+}
+function renderFinder(el){
+  if(finder.step>=FQ.length){
+    var ranked=scoreFinder(finder.ans), top=ranked[0], alts=ranked.slice(1,4);
+    el.innerHTML = '<section class="sec"><div style="text-align:center;max-width:58ch;margin:0 auto">' +
+      '<span class="label">Our recommendation</span><h1 style="margin-top:12px">'+esc(fullName(top.p))+'</h1>' +
+      '<p class="lede" style="margin-top:12px">'+esc(top.p.blurb)+'</p></div>' +
+      '<div class="card cols-rec" style="margin-top:26px;gap:30px">' +
+      '<div style="display:flex;justify-content:center">'+deviceSVG(top.p,240)+'</div>' +
+      '<div class="stack" style="gap:14px">' +
+      '<div class="rng"><span class="v tnum" style="font-size:26px">'+rangeText(top.p)+'</span><span class="u">per unit '+DOT+' by quantity '+DOT+' excl. GST</span></div>' +
+      '<div class="bullets">'+(top.why.length?top.why:['it is the closest fit to the brief you described'])
+        .slice(0,4).map(function(w){ return '<div><span class="c">'+CHECK+'</span><span>Chosen because '+esc(w)+'</span></div>'; }).join('')+'</div>' +
+      '<div class="row" style="gap:11px"><a class="btn btn-p" href="#/inquire?p='+top.p.id+'">Request a quote</a>' +
+      '<a class="btn btn-s" href="#/p/'+top.p.id+'">See the detail</a></div></div></div>' +
+      '<h3 style="margin:32px 0 14px">Also worth putting in front of the committee</h3>' +
+      '<div class="grid g3">'+alts.map(function(x){return productCard(x.p);}).join('')+'</div>' +
+      '<div style="text-align:center;margin-top:26px"><button class="btn btn-s btn-sm" id="fAgain">Start over</button></div></section>';
+    return;
+  }
+  var q=FQ[finder.step];
+  el.innerHTML = '<section class="sec"><div class="narrow">' +
+    '<span class="label">Question '+(finder.step+1)+' of '+FQ.length+'</span>' +
+    '<h1 style="margin:12px 0 26px">'+q.q+'</h1>' +
+    '<div class="stack" style="gap:11px">'+q.o.map(function(o){
+      return '<button class="check" data-fq="'+q.k+':'+o[0]+'" style="text-align:left"><span class="t">'+o[1]+'</span></button>';
+    }).join('')+'</div>' +
+    (finder.step?'<button class="btn btn-g btn-sm" id="fBack" style="margin-top:20px">&#8592; Back</button>':'') +
+    '</div></section>';
+}
+
+/* ============================================================
+   COMPARE
+   ============================================================ */
+function renderCompare(el){
+  var ps=state.compare.map(byId).filter(Boolean);
+  if(!ps.length){
+    el.innerHTML='<section class="sec"><div class="card" style="text-align:center;padding:56px">' +
+      '<h2>Nothing to compare yet</h2><p class="muted" style="margin-top:8px">Add up to three from any card in the range.</p>' +
+      '<a class="btn btn-p btn-sm" href="#/collection" style="margin-top:18px;display:inline-flex">See the range</a></div></section>';
+    return;
+  }
+  var rows=[
+    ['Price per unit', function(p){ return '<b class="tnum">'+rangeText(p)+'</b><br><span class="xs muted">500-unit rate to single unit</span>'; }],
+    ['At 100 units', function(p){ return '<span class="tnum">'+money(unitPrice(p,100))+'</span>'; }],
+    ['Screen', function(p){ var b=artFor(p); return b.screen+INCH+'<br><span class="xs muted">'+b.res+' '+DOT+' '+b.ppi+' ppi</span>'; }],
+    ['Front-light', function(p){ var b=artFor(p); return b.light==='none'?'<span style="color:var(--sale)">'+CROSS+' None</span>':'<span style="color:var(--ok)">'+CHECK+' '+(b.warm?'Warm and cool':'White')+'</span>'; }],
+    ['Input', function(p){ return artFor(p).input==='buttons'?'Physical buttons':'Touchscreen'; }],
+    ['Storage', function(p){ return artFor(p).storage+' GB'; }],
+    ['Weight', function(p){ return artFor(p).weight+' g'; }],
+    ['Engravable', function(p){ return '<span style="color:var(--ok)">'+CHECK+' '+money(149)+' per unit</span>'; }],
+    ['Best for', function(p){ return '<span class="small">'+esc(p.fits||p.tagline)+'</span>'; }]
+  ];
+  el.innerHTML='<div class="crumbs"><a href="#/">Home</a> / Compare</div>' +
+    '<section class="sec" style="padding-top:26px"><div class="sec-h" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">' +
+    '<div><span class="label">Compare</span><h2>Side by side</h2></div>' +
+    '<button class="btn btn-s btn-sm" id="cmpClear">Clear</button></div>' +
+    '<div class="cmp"><table><thead><tr><th></th>'+ps.map(function(p){
+      return '<th style="min-width:190px"><div style="display:flex;justify-content:center;margin-bottom:10px">'+deviceSVG(p,110)+'</div>' +
+        '<a href="#/p/'+p.id+'" style="font-size:16px">'+esc(fullName(p))+'</a>' +
+        '<div style="margin-top:8px"><button class="btn btn-g btn-sm" data-cmp="'+p.id+'" style="color:var(--sale)">Remove</button></div></th>';
+    }).join('')+'</tr></thead><tbody>' +
+    rows.map(function(r){ return '<tr><td>'+r[0]+'</td>'+ps.map(function(p){return '<td>'+r[1](p)+'</td>';}).join('')+'</tr>'; }).join('') +
+    '<tr><td></td>'+ps.map(function(p){ return '<td><a class="btn btn-p btn-sm" href="#/inquire?p='+p.id+'">Request a quote</a></td>'; }).join('')+'</tr>' +
+    '</tbody></table></div></section>';
+}
+
+/* ============================================================
+   HOW IT WORKS / TERMS
+   ============================================================ */
+function renderHow(el){
+  el.innerHTML =
+  '<div class="crumbs"><a href="#/">Home</a> / How it works</div>' +
+  '<section class="sec" style="padding-top:26px">' +
+    '<div class="sec-h"><span class="label">For buyers</span><h2>How a corporate order runs</h2>' +
+    '<p>Written for whoever has to explain this to finance.</p></div>' +
+    processHTML() +
+  '</section>' +
+
+  '<section class="sec" id="pricing"><div class="card">' +
+    '<div class="sec-h"><span class="label">Pricing</span><h2>How the price is built</h2></div>' +
+    '<div class="prose small" style="max-width:none"><p>Every price on this site is shown as a range because a per-unit price without a quantity is meaningless. The upper figure is one unit at list; the lower is the rate at five hundred. Four slabs sit between them, applied automatically, and a mixed order across several models counts together toward one slab.</p></div>' +
+    '<div class="tw" style="margin-top:18px">'+slabTable(byId('panna'))+'</div>' +
+    '<p class="small muted" style="margin-top:14px">Branding, printed boxes and individual home delivery are quoted per unit on top. Above 1,000 units we price against the brief rather than the slab.</p>' +
+  '</div></section>' +
+
+  '<section class="sec" id="terms">' +
+    '<div class="cols2" style="gap:22px">' +
+    '<div class="card"><h3 style="margin-bottom:12px">Payment and tax</h3><div class="bullets">' +
+      '<div><span class="c">'+CHECK+'</span><span><b>50% advance</b> against a proforma invoice, balance before dispatch.</span></div>' +
+      '<div><span class="c">'+CHECK+'</span><span><b>Thirty-day credit</b> for empanelled vendors from the second order.</span></div>' +
+      '<div><span class="c">'+CHECK+'</span><span><b>GST at 18%</b>, fully creditable. HSN 85437099.</span></div>' +
+      '<div><span class="c">'+CHECK+'</span><span><b>NEFT, RTGS or corporate card.</b> No payment is taken on this site.</span></div>' +
+      '<div><span class="c">'+CHECK+'</span><span>Vendor empanelment paperwork, MSME and GST certificates on request.</span></div>' +
+    '</div></div>' +
+    '<div class="card" id="delivery"><h3 style="margin-bottom:12px">Delivery and distribution</h3><div class="bullets">' +
+      '<div><span class="c">'+CHECK+'</span><span><b>One address</b> &#8212; cartons to head office or a warehouse, free above 25 units.</span></div>' +
+      '<div><span class="c">'+CHECK+'</span><span><b>Several offices</b> &#8212; we split and label cartons by location at no extra cost.</span></div>' +
+      '<div><span class="c">'+CHECK+'</span><span><b>Individual homes</b> &#8212; '+money(120)+' per address, individually packed and tracked. You send a sheet; we return it with tracking against every row.</span></div>' +
+      '<div><span class="c">'+CHECK+'</span><span>Dispatch within two working days up to 24 units. Larger runs follow the lead-time table.</span></div>' +
+    '</div></div>' +
+    '</div>' +
+    '<div class="card" style="margin-top:22px"><h3 style="margin-bottom:12px">Lead times</h3>' +
+    '<div class="tw"><table class="slab"><thead><tr><th>Quantity</th><th>Dispatch</th><th>With branding</th></tr></thead><tbody>' +
+    LEADTIMES.map(function(l){ return '<tr><td>'+l[0]+'</td><td>'+l[1]+'</td><td class="muted">'+l[2]+'</td></tr>'; }).join('') +
+    '</tbody></table></div></div>' +
+  '</section>' +
+
+  '<section class="sec"><div class="sec-h"><span class="label">Questions</span><h2>What buyers ask first</h2></div>' +
+  '<div class="grid g2">' +
+    faq('Is there really no minimum?','One unit. It is not a loss-leader &#8212; it exists because every serious corporate order starts with somebody holding the thing, and a sample that takes three weeks to approve kills the timeline.') +
+    faq('Can we see a branded proof before committing?','Yes, and we insist on it for engraved runs. One unit is engraved, photographed and couriered to whoever signs off. It is billable and counts toward the order.') +
+    faq('What if a device fails after we have gifted it?','Twelve-month warranty, serviced from Chandigarh, pickup arranged by us. We hold spare stock against every corporate order so a replacement does not wait on an import cycle.') +
+    faq('Can you ship to employees at home?','Yes, at '+money(120)+' per address. Send a sheet of names and addresses; we pack, label and return it with tracking against each row. This is the most requested option for distributed teams.') +
+    faq('Do you handle GST paperwork properly?','A regular tax invoice with your GSTIN, HSN 85437099 and an 18% line you reclaim in full. Vendor empanelment documents are available on request.') +
+    faq('How late can we order for Diwali?','Engraving slots close at the end of September. Unbranded stock up to 100 units can usually go out inside a week after that, but do not plan on it.') +
+  '</div></section>' + ctaBlock();
+}
+function faq(q,a){ return '<div class="card"><h4 style="margin-bottom:8px">'+q+'</h4><p class="small muted">'+a+'</p></div>'; }
+
+function renderLegal(el){
+  el.innerHTML='<div class="crumbs"><a href="#/">Home</a> / Policies</div>' +
+  '<section class="sec" style="padding-top:26px"><div class="narrow">' +
+  '<h1>Policies</h1>' +
+  '<div class="card" style="margin-top:20px" id="warranty"><h3>Warranty</h3><p class="small muted" style="margin-top:8px">Twelve months from delivery against manufacturing defects, serviced from our Chandigarh facility with pickup arranged and paid by us. Dead-on-arrival units are replaced within seven days. Spare stock is held against every corporate order so replacements do not wait on an import cycle. Physical and liquid damage are not covered; e-ink panels are replaced rather than repaired.</p></div>' +
+  '<div class="card" style="margin-top:14px"><h3>Cancellation and returns</h3><p class="small muted" style="margin-top:8px">Unbranded stock may be returned within seven days of delivery in original packaging. Engraved, re-skinned or personalised stock cannot be returned once produced, which is why a physical proof is approved before any production run.</p></div>' +
+  '<div class="card" style="margin-top:14px" id="privacy"><h3>Privacy (DPDP Act, 2023)</h3><p class="small muted" style="margin-top:8px">We collect the contact and company details you submit in an inquiry solely to respond to it and fulfil an order. Recipient names and addresses supplied for distribution are used for that dispatch and deleted 90 days after delivery. We do not sell personal data. Write to the grievance officer to access or erase your data.</p></div>' +
+  '<div class="card" style="margin-top:14px" id="grievance"><h3>Grievance officer</h3><p class="small muted" style="margin-top:8px">orders@ekitabein.com &#183; WhatsApp +233 257319254 &#183; ekitabein pvt. ltd., 5257 Sector 38 West, Chandigarh 160036. Complaints acknowledged within 48 hours and resolved within 30 days.</p></div>' +
+  '</div></section>';
+}
+function renderNotFound(el){
+  el.innerHTML='<section class="sec"><div class="card" style="text-align:center;padding:70px 20px">' +
+    '<h1>Page not found</h1><p class="muted" style="margin-top:10px">That link does not lead anywhere.</p>' +
+    '<a class="btn btn-p" href="#/" style="margin-top:20px;display:inline-flex">Back to the store</a></div></section>';
+}
+
+/* ============================================================
+   EVENTS
+   ============================================================ */
+document.addEventListener('click', function(e){
+  var t=e.target.closest('[data-short],[data-cmp],[data-view],[data-tab],[data-q],[data-qq],[data-fq],[data-br],[data-dl],[data-clearall]');
+  if(!t) return;
+  var d=t.dataset;
+  if(d.short!=null){ e.preventDefault(); addToQuote(d.short); return; }
+  if(d.cmp!=null){ e.preventDefault();
+    var i=state.compare.indexOf(d.cmp);
+    if(i>-1) state.compare.splice(i,1);
+    else { if(state.compare.length>=3){ toast('Compare holds three at a time'); return; } state.compare.push(d.cmp); toast('Added to compare'); }
+    save(); render(); return; }
+  if(d.view!=null){ e.preventDefault(); pdp.view=+d.view; render(); return; }
+  if(d.tab!=null){ e.preventDefault(); pdp.tab=d.tab; render(); return; }
+  if(d.q!=null){ e.preventDefault(); pdp.qty=Math.max(1, pdp.qty + (d.q==='+'?stepFor(pdp.qty):-stepFor(pdp.qty,true))); render(); return; }
+  if(d.qq!=null){ e.preventDefault();
+    var pr=d.qq.split(':'), idx=+pr[0], cur=state.quote[idx].qty;
+    setQuoteQty(idx, cur + (pr[1]==='+'?stepFor(cur):-stepFor(cur,true))); return; }
+  if(d.fq!=null){ e.preventDefault(); var f=d.fq.split(':'); finder.ans[f[0]]=f[1]; finder.step++; render(); return; }
+  if(d.br!=null){ var j=inq.branding.indexOf(d.br);
+    if(j>-1) inq.branding.splice(j,1); else inq.branding.push(d.br);
+    t.closest('.check').classList.toggle('on'); return; }
+  if(d.dl!=null){ inq.delivery=d.dl;
+    [].forEach.call(document.querySelectorAll('[data-dl]'), function(x){ x.closest('.check').classList.toggle('on', x.dataset.dl===d.dl); });
+    return; }
+  if(d.clearall!=null){ e.preventDefault(); go('#/collection'); return; }
+});
+/* quantity steps that make sense for bulk buying */
+function stepFor(q, down){
+  if(down){ if(q>500) return 100; if(q>100) return 25; if(q>25) return 5; return 1; }
+  if(q>=500) return 100; if(q>=100) return 25; if(q>=25) return 5; return 1;
+}
+document.addEventListener('click', function(e){
+  var id=e.target && e.target.id;
+  if(id==='cmpClear'){ state.compare=[]; save(); render(); toast('Compare cleared'); }
+  if(id==='fAgain'){ finder={step:0,ans:{}}; render(); }
+  if(id==='fBack'){ finder.step=Math.max(0,finder.step-1); render(); }
+});
+document.getElementById('menuBtn').addEventListener('click', function(){
+  document.getElementById('mainnav').classList.toggle('open');
+});
+document.getElementById('themeBtn').addEventListener('click', function(){
+  var cur=document.documentElement.getAttribute('data-theme');
+  var sysDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var next=cur ? (cur==='dark'?'light':'dark') : (sysDark?'light':'dark');
+  document.documentElement.setAttribute('data-theme', next);
+  try{ localStorage.setItem('ekitabein.biz.theme', next); }catch(e){}
+});
+try{ var th=localStorage.getItem('ekitabein.biz.theme'); if(th) document.documentElement.setAttribute('data-theme', th); }catch(e){}
+
+if(!location.hash) location.hash='#/';
+render();
+</script>
+
